@@ -1,7 +1,7 @@
 # Party Mode Workflow 完整分析
 
 > 📅 分析日期：2025-12-29
-> 📦 專案：slinky-console
+> 📦 專案：bmad-docs
 > 👤 分析者：Paige (Technical Writer)
 
 ## 概述
