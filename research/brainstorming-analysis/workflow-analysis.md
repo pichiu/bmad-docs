@@ -123,29 +123,62 @@ Load config from `{project-root}/_bmad/core/config.yaml` and resolve:
 
 **路徑變數分析：**
 
+```mermaid
+flowchart TD
+    subgraph ROOT["{project-root}"]
+        direction TB
+
+        subgraph BMAD["_bmad/"]
+            subgraph CORE["core/"]
+                subgraph WF["workflows/brainstorming/"]
+                    WM["workflow.md<br/>[installed_path]"]
+                    TM["template.md<br/>[template_path]"]
+                    CSV["brain-methods.csv<br/>[brain_tech_path]"]
+                    STEPS["steps/"]
+                end
+            end
+        end
+
+        subgraph OUTPUT["_bmad-output/"]
+            subgraph ANALYSIS["analysis/"]
+                SESSION["brainstorming-session-{date}.md<br/>[default_output_file]"]
+            end
+        end
+    end
+
+    WM -.->|產生| SESSION
+    TM -.->|複製為| SESSION
+    CSV -.->|載入技術| WM
+
+    style WM fill:#e3f2fd
+    style SESSION fill:#c8e6c9
+    style CSV fill:#fff3e0
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        Path Resolution                           │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  {project-root}                                                  │
-│       │                                                          │
-│       ├── _bmad/                                                 │
-│       │     └── core/                                            │
-│       │           └── workflows/brainstorming/                   │
-│       │                  │                                       │
-│       │                  ├── workflow.md      [installed_path]   │
-│       │                  ├── template.md      [template_path]    │
-│       │                  ├── brain-methods.csv [brain_tech_path] │
-│       │                  └── steps/                              │
-│       │                                                          │
-│       └── _bmad-output/                                          │
-│             └── analysis/                                        │
-│                   └── brainstorming-session-{date}.md            │
-│                         ▲                                        │
-│                         └── [default_output_file]                │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘
+
+**技術概念說明：路徑抽象化（Path Abstraction）**
+
+這種設計使工作流程可在不同環境中運作：
+
+```mermaid
+graph LR
+    subgraph ABSTRACT["路徑抽象層"]
+        V1["{project-root}"]
+        V2["{installed_path}"]
+        V3["{output_folder}"]
+    end
+
+    subgraph CONCRETE["具體路徑（運行時解析）"]
+        C1["/home/user/my-project"]
+        C2[".../_bmad/core/workflows/brainstorming"]
+        C3[".../_bmad-output/analysis"]
+    end
+
+    V1 -->|解析| C1
+    V2 -->|解析| C2
+    V3 -->|解析| C3
+
+    style ABSTRACT fill:#e3f2fd
+    style CONCRETE fill:#c8e6c9
 ```
 
 **設計考量：**
@@ -169,43 +202,70 @@ happen in step-01-session-setup.md.
 
 **執行流程分析：**
 
+```mermaid
+flowchart TD
+    WF["workflow.md<br/>Load config | Set paths | Define role"] --> S1
+
+    subgraph SETUP["Step 1: Session Setup"]
+        S1["step-01-session-setup.md"]
+        S1 --> CHECK{文件存在?}
+        CHECK -->|是| S1B["step-01b-continue.md<br/>續行會議"]
+        CHECK -->|否| FRESH["全新會議<br/>收集脈絡 | 呈現選項"]
+    end
+
+    FRESH --> SELECT{用戶選擇路徑}
+
+    subgraph STEP2["Step 2: 技術選擇（四選一）"]
+        SELECT -->|[1]| S2A["step-02a<br/>User-Selected"]
+        SELECT -->|[2]| S2B["step-02b<br/>AI-Recommended"]
+        SELECT -->|[3]| S2C["step-02c<br/>Random Selection"]
+        SELECT -->|[4]| S2D["step-02d<br/>Progressive Flow"]
+    end
+
+    S1B --> S3
+    S2A --> S3
+    S2B --> S3
+    S2C --> S3
+    S2D --> S3
+
+    subgraph EXEC["Step 3-4: 執行與組織"]
+        S3["step-03-technique-execution.md<br/>技術執行"]
+        S3 --> S4["step-04-idea-organization.md<br/>想法組織"]
+    end
+
+    S4 --> DONE["✅ Session Complete<br/>+ Output Document"]
+
+    style WF fill:#e3f2fd
+    style SETUP fill:#fff3e0
+    style STEP2 fill:#e8f5e9
+    style EXEC fill:#fce4ec
+    style DONE fill:#c8e6c9
 ```
-workflow.md
-     │
-     │ Load config
-     │ Set paths
-     │ Define role
-     ▼
-step-01-session-setup.md ──────────────────────────────────────┐
-     │                                                          │
-     │ Check for existing document                              │
-     │                                                          │
-     ├──[Document exists]──▶ step-01b-continue.md               │
-     │                                                          │
-     │                                                          │
-     │ [Fresh workflow]                                         │
-     │                                                          │
-     │ Gather session context                                   │
-     │ Present approach options                                 │
-     ▼                                                          │
- User selects approach (1-4)                                    │
-     │                                                          │
-     ├──[1]──▶ step-02a-user-selected.md                        │
-     ├──[2]──▶ step-02b-ai-recommended.md                       │
-     ├──[3]──▶ step-02c-random-selection.md                     │
-     └──[4]──▶ step-02d-progressive-flow.md                     │
-                                                                │
-              All routes converge to:                           │
-                       ▼                                        │
-              step-03-technique-execution.md                    │
-                       │                                        │
-                       ▼                                        │
-              step-04-idea-organization.md                      │
-                       │                                        │
-                       ▼                                        │
-              Session Complete + Output Document                │
-                                                                │
-└───────────────────────────────────────────────────────────────┘
+
+**技術概念說明：Strategy Pattern + Chain of Responsibility**
+
+這個執行流程結合了兩種設計模式：
+
+```mermaid
+graph TB
+    subgraph STRATEGY["Strategy Pattern（策略模式）"]
+        direction LR
+        CTX["Context<br/>step-01"] --> INT["Interface<br/>技術選擇策略"]
+        INT --> ST1["Strategy A<br/>User-Selected"]
+        INT --> ST2["Strategy B<br/>AI-Recommended"]
+        INT --> ST3["Strategy C<br/>Random"]
+        INT --> ST4["Strategy D<br/>Progressive"]
+    end
+
+    subgraph CHAIN["Chain of Responsibility（責任鏈）"]
+        direction LR
+        H1["Handler 1<br/>Step 1"] --> H2["Handler 2<br/>Step 2*"]
+        H2 --> H3["Handler 3<br/>Step 3"]
+        H3 --> H4["Handler 4<br/>Step 4"]
+    end
+
+    style STRATEGY fill:#e3f2fd
+    style CHAIN fill:#fff3e0
 ```
 
 ---
@@ -285,3 +345,60 @@ step-01-session-setup.md ──────────────────�
 5. **擴展友善**：新增功能無需修改主檔案
 
 這種設計使得工作流程易於理解、維護與擴展，體現了 BMAD 框架「微檔案架構」的核心理念。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((workflow.md<br/>主工作流程))
+    初始化
+      載入 config.yaml
+      解析路徑變數
+      定義角色
+    架構特色
+      Micro-file Architecture
+      Self-contained Steps
+      Append-only Document
+    步驟流程
+      Step 1 Setup
+      Step 2 Selection 四選一
+      Step 3 Execution
+      Step 4 Organization
+    擴展性
+      新增路徑無需改主檔
+      新增技術只改 CSV
+      模組化設計
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Entry Point Pattern** | workflow.md | 單一入口點，集中初始化 |
+| **Delegation Pattern** | 步驟委派 | 主檔案簡潔，具體邏輯在步驟 |
+| **Configuration Injection** | config.yaml | 支援多用戶、多環境 |
+| **Strategy Pattern** | Step 2 分支 | 四種技術選擇策略 |
+| **Chain of Responsibility** | 步驟流程 | 步驟間有序傳遞 |
+| **Path Abstraction** | 路徑變數 | 支援不同部署環境 |
+
+### 與其他 BMAD 工作流程比較
+
+```mermaid
+graph TB
+    subgraph BRAINSTORMING["Brainstorming Workflow"]
+        B1["Entry Point"] --> B2["4 步驟 + 4 分支"]
+        B2 --> B3["輸出文件<br/>brainstorming-session.md"]
+    end
+
+    subgraph PARTY["Party Mode"]
+        P1["Entry Point"] --> P2["3 線性步驟"]
+        P2 --> P3["無特定輸出<br/>對話記錄"]
+    end
+
+    style BRAINSTORMING fill:#e3f2fd
+    style PARTY fill:#fff3e0
+```
+
+**核心洞察**：workflow.md 是 Brainstorming 工作流程的「大腦」，透過簡潔的初始化邏輯與明確的委派機制，協調整個創意會議的執行，體現了 BMAD 框架對**模組化**、**可擴展**、**可維護**的設計追求。
