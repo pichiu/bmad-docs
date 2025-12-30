@@ -500,6 +500,19 @@ flowchart LR
 - **遊戲化框架**降低評判焦慮，提升創意表現
 - **隨機刺激**打破固定思維路徑
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Bisociation** | Arthur Koestler創意理論 | 兩個無關框架碰撞產生創新 |
+| **Conceptual Blending** | Fauconnier & Turner | 認知語言學的概念融合理論 |
+| **Forced Relationships** | 強迫連結技術 | 隨機組合打破固定思維路徑 |
+| **Random Stimulation** | 橫向思維Edward de Bono | 隨機輸入激發新聯想 |
+| **Synectics** | Gordon創意方法 | 「使陌生變熟悉、熟悉變陌生」 |
+| **Morphological Analysis** | Fritz Zwicky | 系統化組合不同維度的可能性 |
+
+**核心洞察**：Dream Fusion Laboratory的精髓是「創意煉金術」——正如煉金術士相信基本元素可以轉化成黃金，這個技術相信看似無關的概念可以融合成突破性創新。關鍵在於「化學反應」隱喻：元素A + 元素B ≠ A和B的簡單加總，而是產生全新的物質C。這就是為什麼最瘋狂的組合往往產生最有價值的結果——因為它們強迫大腦在毫無路徑的地方開闢新道路，而這正是真正創新發生的地方。
+
 ## 參考資源
 
 - [Forced Relationships Technique](https://www.mycoted.com/Forced_Relationships)

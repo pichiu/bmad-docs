@@ -524,6 +524,19 @@ flowchart LR
 - **品牌忠誠度**：情感連結是忠誠度的最強預測因子
 - **口碑傳播**：觸動情感的產品獲得更多推薦
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Emotional Design** | Don Norman三層次理論 | 本能、行為、反思層次的情感設計 |
+| **Plutchik's Wheel** | 情緒心理學 | 八種基本情緒及其組合的系統框架 |
+| **Designing for Emotion** | Aarron Walter | 用戶需求金字塔頂端是愉悅 |
+| **Empathy Mapping** | 設計思維工具 | 理解用戶所想、所感、所說、所做 |
+| **Peak-End Rule** | Kahneman行為經濟學 | 高潮與結尾決定整體體驗記憶 |
+| **Jobs to Be Done** | 功能與情感任務並重 | 產品解決的情感任務往往比功能更重要 |
+
+**核心洞察**：Emotion Orchestra揭示了一個被忽略的真相——產品不只是功能的集合，而是情感體驗的編排。就像交響樂不是隨機音符的堆砌，卓越的產品是精心設計的情感旅程。音樂隱喻的力量在於它將抽象的情感變得可討論、可設計：我們可以問「這裡需要什麼樂器」、「這個和聲是否和諧」、「高潮來得太早還是太晚」。95%的購買決策是情感性的——這意味著如果你只設計功能而忽略情感，你只觸及了用戶決策的5%。
+
 ## 參考資源
 
 - [Don Norman: Emotional Design](https://www.jnd.org/books/emotional-design-why-we-love-or-hate-everyday-things/)

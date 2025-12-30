@@ -425,6 +425,19 @@ flowchart LR
 - **對話形式**促進社會學習和集體智慧湧現
 - **跨時空視角**打破當下偏見，提升策略思考
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Future Hindsight** | 從未來回望現在 | 逆向時間觀點提供獨特洞見 |
+| **Scenario Planning** | Shell石油公司方法 | 多重未來情境探索的企業級應用 |
+| **Temporal Reasoning** | 認知心理學 | 時間維度的思維框架理論基礎 |
+| **Backcasting** | 從願景倒推行動 | 未來嘉賓視角的結構化方法 |
+| **Socratic Dialogue** | 蘇格拉底對話法 | 透過提問引導深層思考 |
+| **Role Playing** | 體驗式學習 | 角色投入增強觀點轉換 |
+
+**核心洞察**：Time Travel Talk Show的魔力在於「時間的民主化」——讓過去的智慧、現在的現實、未來的可能性平等對話。當我們強迫不同時代的思維碰撞，就打破了「當下偏見」（present bias）這個認知陷阱。最深刻的創新往往來自這種「時間三角測量」：過去告訴我們什麼是永恆的，未來告訴我們什麼是可能的，而我們的任務是在當下找到連結兩者的橋樑。
+
 ## 參考資源
 
 - [Future Hindsight Technique](https://www.interaction-design.org/literature/article/learn-how-to-use-the-best-ideation-methods-future-hindsight)
