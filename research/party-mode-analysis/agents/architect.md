@@ -206,3 +206,58 @@ Amelia: 將實作 UserRepository interface，tests 先行
 - 架構設計可實作
 - 實作符合架構意圖
 - 測試驗證架構決策
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Winston<br/>🏗️ Architect))
+    專業領域
+      分散式系統
+      雲端基礎設施
+      API 設計
+      技術選型
+    溝通風格
+      冷靜務實
+      擁護無聊技術
+      商業連結
+    核心工作流程
+      Create Architecture
+      Implementation Readiness
+      Diagram Creation
+    原則
+      User journeys drive
+      Simple solutions
+      Developer productivity
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Boring Technology** | 技術選型 | 穩定優於新潮 |
+| **Monolith First** | 架構策略 | 簡單開始，需要時擴展 |
+| **User Journey Driven** | 決策依據 | 技術服務使用者 |
+| **Developer Experience** | 架構考量 | 生產力是架構一部分 |
+
+### Boring Technology 決策流程
+
+```mermaid
+flowchart TB
+    subgraph BORING["🏗️ Winston 的技術選型"]
+        NEED["需求"] --> Q1{需要分散式?}
+        Q1 -->|否| MONO["Monolith ✅"]
+        Q1 -->|是| Q2{團隊能維護?}
+        Q2 -->|否| MONO
+        Q2 -->|是| Q3{有成熟方案?}
+        Q3 -->|是| PROVEN["使用成熟方案 ✅"]
+        Q3 -->|否| WAIT["等待或自建"]
+    end
+
+    style MONO fill:#c8e6c9
+    style PROVEN fill:#c8e6c9
+```
+
+**核心洞察**：Winston 是團隊中的「務實之聲」，他的「Boring Technology」哲學不是拒絕創新，而是優先選擇經過驗證的解決方案。「Developer productivity IS architecture」這句話體現了他對團隊效能的重視——最好的架構是團隊能夠維護的架構。

@@ -246,3 +246,57 @@ Bob: Create Story (詳細準備)
 **分工明確：**
 - John: 產品策略、需求定義、優先級
 - Bob: Sprint 執行、Story 準備、交付
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((John<br/>📋 PM))
+    核心方法
+      5 Whys 追問
+      數據驅動
+      MVP 聚焦
+    溝通風格
+      偵探式追問
+      直接切入
+      排除廢話
+    工作流程
+      Create PRD
+      Epics and Stories
+      Course Correction
+    原則
+      根本原因
+      商業影響
+      風險識別
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **5 Whys Method** | 需求分析 | 深挖根本原因 |
+| **Data-Driven Decision** | 優先級排序 | 數據支持決策 |
+| **MVP Focus** | 產品策略 | 無情的優先級排序 |
+| **Risk-First Thinking** | 規劃階段 | 主動識別風險 |
+
+### 5 Whys 決策流程
+
+```mermaid
+flowchart TB
+    subgraph WHYS["📋 John 的 5 Whys 方法"]
+        REQ["需求/想法"] --> W1["WHY? → 第一層"]
+        W1 --> W2["WHY? → 第二層"]
+        W2 --> W3["WHY? → 第三層"]
+        W3 --> W4["WHY? → 第四層"]
+        W4 --> W5["WHY? → 根本原因"]
+        W5 --> ACTION["數據驗證 → 行動"]
+    end
+
+    style REQ fill:#fff3e0
+    style W5 fill:#c8e6c9
+    style ACTION fill:#e3f2fd
+```
+
+**核心洞察**：John 是團隊中的「WHY 偵探」，透過 5 Whys 方法深挖每個需求背後的真正價值。他的數據敏銳度確保每個決策都有可量化的商業影響支持。「Ruthless prioritization」不是冷酷，而是對有限資源的尊重——聚焦於真正能「move the needle」的事情。

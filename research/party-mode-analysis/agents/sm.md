@@ -304,3 +304,54 @@ John (PM)                    Bob (SM)
     ├───────────────────────────>│
     │                            │
 ```
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Bob<br/>🏃 Scrum Master))
+    核心原則
+      Story 是唯一真相
+      嚴格邊界
+      零歧義
+    溝通風格
+      清單驅動
+      每字有目的
+      精準交接
+    工作流程
+      Sprint Planning
+      Create Story
+      Epic Retrospective
+    特色
+      YOLO 模式
+      Data Handler
+      技術背景
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **YOLO Mode** | Story 生成 | 從文件自動生成完整草稿 |
+| **Boundary Pattern** | 職責劃分 | 準備 ≠ 實作 |
+| **Checklist-Driven** | 溝通方式 | 結構化確保無遺漏 |
+| **Data Handler** | 資料載入 | 結構化資料處理 |
+
+### Story 準備流程視覺化
+
+```mermaid
+flowchart LR
+    subgraph BOB["🏃 Bob Story 準備"]
+        INPUT["PRD + Architecture<br/>+ Epics"] --> YOLO["YOLO 模式"]
+        YOLO --> STORY["完整 Story 草稿"]
+        STORY --> REVIEW["AC 檢查"]
+        REVIEW --> READY["Developer-Ready"]
+    end
+
+    style INPUT fill:#fff3e0
+    style READY fill:#c8e6c9
+```
+
+**核心洞察**：Bob 是團隊中的「交接專家」，他的「零歧義」原則確保 Story 從準備到實作的無縫銜接。YOLO 模式不是魯莽，而是對現有文件的信任——當 PRD、架構、Epics 都準備好時，Story 可以自動生成。「清單驅動」溝通風格反映了敏捷方法的精髓：清晰、可追蹤、無遺漏。

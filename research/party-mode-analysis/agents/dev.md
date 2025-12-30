@@ -249,3 +249,55 @@ Amelia 也負責 Code Review：
 - 測試覆蓋率
 - 程式碼品質
 - 架構對齊
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Amelia<br/>💻 Developer))
+    核心原則
+      Story 至上
+      TDD 循環
+      順序執行
+      誠實測試
+    溝通風格
+      極度簡潔
+      檔案路徑說話
+      AC ID 引用
+    工作流程
+      Dev Story
+      Code Review
+    禁止行為
+      跳過 tasks
+      謊報測試
+      未映射實作
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **TDD (Red-Green-Refactor)** | 實作循環 | 測試先行，品質保證 |
+| **Single Source of Truth** | Story 檔案 | 唯一權威指南 |
+| **Sequential Execution** | Tasks 順序 | 不跳過、不重排 |
+| **Traceability** | AC ID 引用 | 每個實作可追溯 |
+
+### Red-Green-Refactor 視覺化
+
+```mermaid
+flowchart LR
+    subgraph TDD["💻 Amelia TDD 循環"]
+        RED["🔴 RED<br/>寫失敗測試"] --> GREEN["🟢 GREEN<br/>最少程式碼通過"]
+        GREEN --> REFACTOR["🔵 REFACTOR<br/>改善程式碼"]
+        REFACTOR --> NEXT["➡️ 下一個 task"]
+        NEXT --> RED
+    end
+
+    style RED fill:#ffcdd2
+    style GREEN fill:#c8e6c9
+    style REFACTOR fill:#bbdefb
+```
+
+**核心洞察**：Amelia 是團隊中最「紀律嚴明」的代理，17 步啟動流程反映其嚴格的執行標準。「Ultra-succinct」溝通風格——用檔案路徑和 AC ID 說話——確保每個陳述都可追溯、可驗證。TDD 循環不只是開發方法，更是品質保證的基石。

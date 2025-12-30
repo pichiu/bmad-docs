@@ -309,15 +309,102 @@ Murat 對 flaky tests 的立場：
 
 Murat 與 Amelia 的互動模式：
 
+```mermaid
+sequenceDiagram
+    participant M as 🧪 Murat
+    participant A as 💻 Amelia
+    participant CI as 🔄 CI System
+
+    M->>A: 📝 E2E 測試套件（定義預期行為）
+    A->>A: 實作程式碼
+    A->>CI: 提交程式碼
+    CI->>M: 測試結果
+    M->>A: ✅ 驗證通過 + 邊界案例建議
+    A->>CI: 更新程式碼
+    CI-->>M: 🟢 測試全綠
+    M-->>A: 功能完成！
 ```
-Murat: 這是 E2E 測試套件，定義預期行為
-         │
-         ▼
-Amelia: 實作程式碼使測試通過
-         │
-         ▼
-Murat: 驗證測試套件，擴展邊界案例
-         │
-         ▼
-       測試全綠 → 功能完成
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Murat<br/>🧪 Test Architect))
+    核心原則
+      風險導向測試
+      數據支持品質門檻
+      測試鏡射使用模式
+    溝通風格
+      強意見弱持有
+      風險計算語言
+      數據+直覺
+    工作流程
+      Framework
+      ATDD
+      Automate
+      Test Design
+      Trace
+      NFR Assess
+      CI
+      Test Review
+    特色
+      知識庫系統
+      Flaky 敏感
+      8 個工作流程
 ```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Knowledge Base Pattern** | 知識載入 | 動態載入相關測試知識片段 |
+| **Risk-Based Testing** | 測試策略 | 測試深度隨風險/影響縮放 |
+| **Strong Opinions Weakly Held** | 決策風格 | 有明確立場但願意改變 |
+| **ATDD (Acceptance TDD)** | 開發流程 | 先定義行為，再實作程式碼 |
+| **Quality Gate Pattern** | CI/CD | 數據支持的品質檢查點 |
+
+### 知識庫載入流程視覺化
+
+```mermaid
+flowchart TB
+    subgraph KNOWLEDGE["🧪 Murat 知識庫系統"]
+        TASK[當前任務] --> INDEX[查詢 tea-index.csv]
+        INDEX --> SELECT[選擇相關片段]
+        SELECT --> LOAD[載入 knowledge/*.md]
+        LOAD --> VERIFY[交叉驗證]
+
+        subgraph SOURCES["官方文件來源"]
+            VERIFY --> PW[Playwright]
+            VERIFY --> CY[Cypress]
+            VERIFY --> PACT[Pact]
+            VERIFY --> CI[CI 平台]
+        end
+    end
+
+    style TASK fill:#fff3e0
+    style LOAD fill:#e3f2fd
+    style VERIFY fill:#c8e6c9
+```
+
+### 風險計算視覺化
+
+```mermaid
+graph LR
+    subgraph RISK["⚖️ 風險 vs 價值計算"]
+        BI[商業影響] --> CALC((風險<br/>計算))
+        UF[使用頻率] --> CALC
+        CX[複雜度] --> CALC
+        ED[外部依賴] --> CALC
+
+        CALC --> DEPTH[測試深度]
+        CALC --> TYPE[測試類型]
+        CALC --> PRIORITY[自動化優先級]
+    end
+
+    style CALC fill:#ffcdd2
+    style DEPTH fill:#c8e6c9
+```
+
+**核心洞察**：Murat 是團隊中的「風險計算師」，他的「Strong Opinions, Weakly Held」哲學使他能在保持專業判斷的同時保持開放心態。Knowledge Base Pattern 讓他能動態載入相關測試知識，而非一次載入所有資訊，這是一種高效的 Lazy Loading 變體。他對 Flaky Tests 的零容忍態度反映了測試架構師的核心價值：測試必須是可信賴的，否則它們就失去了存在的意義。

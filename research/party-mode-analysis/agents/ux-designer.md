@@ -305,3 +305,101 @@ Sally 創建的典型用戶角色：
 | **目標** | 快速完成任務 |
 | **痛點** | 找不到功能 |
 | **情緒** | 挫折感 |
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Sally<br/>🎨 UX Designer))
+    核心原則
+      用戶需求至上
+      簡單起步
+      同理心+邊界
+    溝通風格
+      故事講述
+      情感訴求
+      畫面描繪
+    工作流程
+      Create UX Design
+      Create Wireframe
+    專長
+      用戶研究
+      互動設計
+      AI 輔助工具
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **User Story Telling** | 需求溝通 | 用故事讓團隊「感受」用戶問題 |
+| **Persona Pattern** | 用戶建模 | 創建具體的用戶角色 |
+| **Empathy-First Design** | 設計決策 | 同理心驅動設計選擇 |
+| **Progressive Disclosure** | UI 設計 | 簡單起步，逐步揭露複雜功能 |
+| **Exec-First Handler** | 選單設計 | exec 類型優先於 workflow |
+
+### 用戶故事講述流程
+
+```mermaid
+flowchart TB
+    subgraph STORYTELLING["🎨 Sally 的故事講述法"]
+        PERSONA[建立角色<br/>名字、背景、情境] --> SCENE[描繪場景<br/>具體使用情境]
+        SCENE --> PAIN[展現痛點<br/>讓人「感受」問題]
+        PAIN --> SOLUTION[提出解決方案<br/>與痛點直接對應]
+        SOLUTION --> VALIDATE[驗證同理<br/>"Can you FEEL...?"]
+    end
+
+    style PERSONA fill:#fff3e0
+    style PAIN fill:#ffcdd2
+    style VALIDATE fill:#c8e6c9
+```
+
+### BMad Method 中的 UX 設計位置
+
+```mermaid
+flowchart TB
+    subgraph FLOW["📋 BMad Method 流程"]
+        PRD[📋 PRD<br/>John] --> UX[🎨 UX Design<br/>Sally]
+        UX --> ARCH[🏗️ Architecture<br/>Winston]
+        ARCH --> EPIC[📝 Epics & Stories]
+    end
+
+    UX -.->|推薦順序| NOTE[在架構之前<br/>定義 UX 模式]
+
+    style UX fill:#fce4ec
+    style NOTE fill:#e1f5fe
+```
+
+### 用戶角色創建模板
+
+```mermaid
+graph TB
+    subgraph PERSONA_CREATE["👤 Persona 創建元素"]
+        subgraph IDENTITY["身份"]
+            NAME[名字]
+            BG[背景]
+        end
+
+        subgraph CONTEXT["情境"]
+            SCENE[使用場景]
+            TIME[時間限制]
+        end
+
+        subgraph EMOTION["情感"]
+            GOAL[目標]
+            PAIN[痛點]
+            FEEL[情緒]
+        end
+    end
+
+    IDENTITY --> STORY((用戶<br/>故事))
+    CONTEXT --> STORY
+    EMOTION --> STORY
+
+    style STORY fill:#fce4ec
+    style EMOTION fill:#ffcdd2
+```
+
+**核心洞察**：Sally 是團隊中的「同理心引擎」，她的故事講述法不是為了煽情，而是為了讓技術團隊真正「感受」用戶的問題。當她問「Can you FEEL Sarah's frustration?」時，她正在建立情感連結，讓設計決策從抽象的功能需求轉化為具體的人類需求。Exec-First Handler 的獨特順序反映了她工作的本質——UX 設計更多是「做」而非「流程」，需要快速迭代和視覺化呈現。

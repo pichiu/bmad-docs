@@ -284,18 +284,105 @@ Paige 檢查的 README 必要章節：
 
 Paige 的專案文件化工作流程：
 
+```mermaid
+flowchart TB
+    subgraph DOC["📚 Document Project 工作流程"]
+        START[開始] --> SCAN[Brownfield 分析]
+        SCAN --> ARCH[架構掃描]
+        ARCH --> GEN[文件生成]
+
+        GEN --> STRUCT[專案結構]
+        GEN --> API[API 文件]
+        GEN --> ARCHDOC[架構說明]
+        GEN --> GUIDE[使用指南]
+    end
+
+    style START fill:#fff3e0
+    style GEN fill:#c8e6c9
 ```
-Document Project
-    │
-    ├── Brownfield 分析
-    │   └── 分析現有程式碼
-    │
-    ├── 架構掃描
-    │   └── 識別架構模式
-    │
-    └── 文件生成
-        ├── 專案結構
-        ├── API 文件
-        ├── 架構說明
-        └── 使用指南
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Paige<br/>📚 Tech Writer))
+    核心原則
+      Documentation = Teaching
+      清晰度至上
+      文件是活產物
+    溝通風格
+      耐心教育者
+      類比高手
+      慶祝清晰
+    工作流程
+      Document Project
+      Generate Mermaid
+      Validate Doc
+      Improve README
+    專業標準
+      CommonMark
+      DITA
+      OpenAPI
+      Mermaid
 ```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Teaching Pattern** | 文件撰寫 | 每份文件都是教學 |
+| **Living Documentation** | 維護策略 | 文件隨程式碼演進 |
+| **Task-Oriented Writing** | 結構設計 | 以用戶任務為導向 |
+| **Analogy Pattern** | 解釋方法 | 用熟悉概念解釋陌生概念 |
+| **Action Menu Pattern** | 選單設計 | 直接執行的快速指令 |
+
+### 教學哲學視覺化
+
+```mermaid
+flowchart LR
+    subgraph TEACHING["📚 Documentation = Teaching"]
+        WHY[為什麼?<br/>解決什麼問題] --> QUICK[快速上手<br/>5 分鐘成功]
+        QUICK --> DEEP[深入細節<br/>需要時查閱]
+    end
+
+    subgraph ANTI["❌ 反模式"]
+        IMPL[直接跳到實作] --> CONFUSE[用戶困惑]
+    end
+
+    TEACHING --> SUCCESS[✅ 用戶成功]
+    ANTI --> FAIL[❌ 用戶流失]
+
+    style WHY fill:#fff3e0
+    style SUCCESS fill:#c8e6c9
+    style FAIL fill:#ffcdd2
+```
+
+### Mermaid 圖表類型分類
+
+```mermaid
+graph TB
+    subgraph DIAGRAMS["🎨 Paige 可生成的圖表"]
+        subgraph FLOW["流程類"]
+            F1[flowchart<br/>流程圖]
+            F2[sequence<br/>序列圖]
+            F3[state<br/>狀態圖]
+        end
+
+        subgraph STRUCT["結構類"]
+            S1[class<br/>類別圖]
+            S2[ER<br/>實體關係圖]
+        end
+
+        subgraph VCS["版本控制"]
+            V1[git<br/>分支圖]
+        end
+    end
+
+    style FLOW fill:#e3f2fd
+    style STRUCT fill:#fff3e0
+    style VCS fill:#f3e5f5
+```
+
+**核心洞察**：Paige 將文件撰寫視為「教學」而非「記錄」，這種思維轉換讓她的文件始終以讀者為中心。她的「類比高手」特質使她能將複雜技術概念轉化為易於理解的說明——就像她說的，好的文件就像食譜，不只告訴你加什麼，還告訴你為什麼和何時。Living Documentation 原則確保文件不會成為過時的遺物，而是隨程式碼一起演進的活資產。

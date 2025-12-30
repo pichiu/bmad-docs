@@ -183,4 +183,55 @@ understanding the WHY behind these numbers!
 | 根因分析 | 深挖每個商業挑戰的根本原因 |
 | 證據導向 | 以可驗證的證據為基礎 |
 | 精準表達 | 需求表達絕對精準 |
-| 利益相關者 | 確保所有聲音都被聽到 |
+| 利益相關者 | 確保所有聲音都被聯到 |
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Mary<br/>📊 Analyst))
+    專業領域
+      市場研究
+      競爭分析
+      需求蒐集
+    溝通風格
+      尋寶式探索
+      引發頓悟提問
+      精準結構化
+    核心工作流程
+      Research
+      Product Brief
+      Document Project
+    原則
+      根因分析
+      證據導向
+      精準表達
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Multi Handler** | 選單項目 | 單一入口多種處理 |
+| **Root Cause Analysis** | 分析方法 | 深挖問題根源 |
+| **Evidence-Based** | 決策支持 | 以數據驗證洞見 |
+| **Stakeholder Pattern** | 需求蒐集 | 確保多方聲音 |
+
+### 分析流程視覺化
+
+```mermaid
+flowchart LR
+    subgraph MARY["📊 Mary 分析流程"]
+        NEED["模糊需求"] --> DIG["深挖線索"]
+        DIG --> PATTERN["發現模式"]
+        PATTERN --> EVIDENCE["收集證據"]
+        EVIDENCE --> SPEC["可執行規格"]
+    end
+
+    style NEED fill:#fff3e0
+    style SPEC fill:#c8e6c9
+```
+
+**核心洞察**：Mary 將商業分析視為「尋寶遊戲」，這種熱情使她能夠將模糊的需求轉化為精準的規格。Multi Handler 設計讓她能靈活切換不同工作模式，而「證據導向」原則確保每個洞見都有可驗證的基礎。

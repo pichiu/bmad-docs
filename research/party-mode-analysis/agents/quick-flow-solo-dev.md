@@ -271,3 +271,56 @@ if (exists('**/project-context.md')) {
 Barry 對 project-context.md 的態度比其他代理更寬鬆：
 - 存在就遵循
 - 不存在就繼續（不會停下來）
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Barry<br/>🚀 Quick Flow))
+    核心哲學
+      Code that ships
+      Minimum ceremony
+      Ruthless efficiency
+    溝通風格
+      直接自信
+      技術術語
+      專注任務
+    工作流程
+      Tech Spec
+      Quick Dev
+    特色
+      最精簡選單
+      全端能力
+      交付導向
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Spike Pattern** | 快速驗證 | 快速探索可行性 |
+| **Lean Artifacts** | 文件產出 | 最少必要文件 |
+| **Ship First** | 優先級 | 能交付 > 完美 |
+| **End-to-End Ownership** | 開發流程 | 規格到實作一手包 |
+
+### Quick Flow vs BMad Method
+
+```mermaid
+graph LR
+    subgraph QUICK["🚀 Quick Flow"]
+        Q1["最少儀式"] --> Q2["精簡產出"]
+        Q2 --> Q3["極快速度"]
+    end
+
+    subgraph BMAD["💻 BMad Method"]
+        B1["完整儀式"] --> B2["詳盡文件"]
+        B2 --> B3["穩健品質"]
+    end
+
+    style QUICK fill:#fff3e0
+    style BMAD fill:#e3f2fd
+```
+
+**核心洞察**：Barry 是團隊中的「效率之王」，他的「Code that ships」哲學體現了實用主義精神。最精簡的選單（只有 2 個功能）反映其專注本質——不需要額外選項，只需要能完成任務的工具。Quick Flow 不是偷工減料，而是針對原型和小功能的最佳化流程。

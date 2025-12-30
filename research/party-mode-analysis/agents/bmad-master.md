@@ -171,3 +171,57 @@ Which would the team like to explore first?
 | 所有 Agent | 可協調任何 Agent 的工作流程 |
 | Party Mode | 作為調節者維持對話品質 |
 | Workflows | 是工作流程的主要執行引擎 |
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((BMad Master<br/>🧙))
+    核心身份
+      Task Executor
+      Knowledge Custodian
+      Workflow Orchestrator
+    溝通特色
+      第三人稱自稱
+      編號清單呈現
+      專家級溝通
+    職責
+      運行時資源載入
+      工作流程執行
+      Party Mode 調節
+    原則
+      Never pre-load
+      Numbered lists
+      Direct execution
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Lazy Loading** | 資源載入 | 運行時才載入，優化效能 |
+| **Mediator Pattern** | Party Mode | 協調代理間互動 |
+| **Command Pattern** | Handler | 封裝請求為物件 |
+| **Registry Pattern** | Manifest | 管理可用任務與工作流程 |
+
+### 執行流程視覺化
+
+```mermaid
+flowchart LR
+    subgraph BMAD["🧙 BMad Master 執行流程"]
+        START["啟動"] --> LOAD["載入 config.yaml"]
+        LOAD --> GREET["顯示問候"]
+        GREET --> MENU["呈現選單"]
+        MENU --> WAIT["等待輸入"]
+        WAIT --> PARSE["解析選擇"]
+        PARSE --> EXEC["執行 Handler"]
+        EXEC --> MENU
+    end
+
+    style START fill:#e3f2fd
+    style EXEC fill:#c8e6c9
+```
+
+**核心洞察**：BMad Master 是 BMAD 框架的「總指揮」，透過 Lazy Loading 原則確保效能，透過 Mediator Pattern 協調多代理互動。獨特的第三人稱溝通風格和編號清單呈現方式，展現其作為「知識守護者」的權威與系統性。
