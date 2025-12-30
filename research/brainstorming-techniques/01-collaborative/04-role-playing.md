@@ -322,4 +322,17 @@ Role Playing 的效果有心理學研究支持：
 
 ---
 
+## 設計模式對照
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Persona Pattern** | 角色選擇 | 創建具體的思考框架 |
+| **Psychological Distance** | 扮演機制 | 「不是我說的，是角色說的」|
+| **Empathy Mapping** | 角色沉浸 | 深入理解他人需求和動機 |
+| **Stakeholder Analysis** | 利害關係人視角 | 系統化考慮多方觀點 |
+
+**核心洞察**：Role Playing 利用了一個心理學現象：「心理距離」（Psychological Distance）。當你說「Steve Jobs 會認為這太複雜」時，你不需要為這個想法負責——這給了你表達大膽想法的自由。更重要的是，扮演他人迫使你離開自己的思維框架。你不只是在「想像」客戶會怎麼想，你是在「成為」客戶。這種具身認知（Embodied Cognition）比任何調研報告都更能產生真正的同理心洞見。
+
+---
+
 *返回 [Collaborative 類別](./index.md) | [技術總覽](../index.md)*

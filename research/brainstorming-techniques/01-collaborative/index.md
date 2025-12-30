@@ -72,4 +72,18 @@ flowchart TD
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Yes And Building** | Psychological Safety, Improv Theater | 肯定式累加，建立信任 |
+| **Brain Writing** | Silent Collaboration, Async Pattern | 平等發言，避免群體迷思 |
+| **Random Stimulation** | Lateral Thinking, Forced Connections | 打破慣性，強制新連結 |
+| **Role Playing** | Persona Pattern, Empathy Mapping | 視角轉換，同理心建立 |
+| **Ideation Relay** | Time-boxing, Sprint Pattern | 時間壓力，繞過內在審查 |
+
+**核心洞察**：協作類技術的本質是創造一個「心理安全」的環境，讓每個人的聲音都能被聽見。無論是 Yes And 的肯定式累加、Brain Writing 的沉默平等，還是 Role Playing 的角色距離，它們都在解決同一個問題：如何讓內向者、初級成員、和非主流意見能夠浮現？最好的協作不是讓聲音最大的人主導，而是讓最好的想法浮現——無論它來自誰。
+
+---
+
 *返回 [技術總覽](../index.md)*
