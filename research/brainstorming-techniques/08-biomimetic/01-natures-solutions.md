@@ -222,6 +222,18 @@ flowchart LR
     ET -->|擴展至系統層| NS
 ```
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Biomimicry (Janine Benyus)** | 向自然學習設計 | 仿生學的系統化方法框架 |
+| **Life's Principles** | Biomimicry Institute 的設計原則 | 評估解決方案是否符合自然的運作模式 |
+| **Cradle to Cradle** | McDonough & Braungart 的循環設計 | 將「廢棄物等於養分」的自然原則應用於產品 |
+| **TRIZ 矛盾矩陣** | 40 個發明原則 | 許多 TRIZ 原則源自自然界的解決方案 |
+| **First Principles Thinking** | 回到基本功能需求 | 在功能層面思考問題，再尋找自然類比 |
+
+**核心洞察**：Nature's Solutions 的智慧在於承認自然是最資深的研發部門——擁有 38 億年的演化經驗。與其重新發明輪子，不如詢問自然如何解決同樣的問題。這種方法的力量不僅在於找到答案，更在於重新框架問題：從「我要如何做到？」轉變為「誰已經做到了？」這種謙遜的態度，往往能帶來既優雅又永續的解決方案。
+
 ## 參考資源
 
 - Janine Benyus (1997): *Biomimicry: Innovation Inspired by Nature*

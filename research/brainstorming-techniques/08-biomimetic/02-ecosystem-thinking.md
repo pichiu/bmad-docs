@@ -293,6 +293,18 @@ flowchart LR
 - 咖啡店提供空間 ↔ 在地藝術家展覽
 - 咖啡渣免費 ↔ 社區菜園供應食材
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Platform Ecosystem (James Moore)** | 商業生態系統理論 | 理解平台經濟中的角色與價值流動 |
+| **Circular Economy (Ellen MacArthur)** | 廢棄物即養分 | 設計閉環系統、零廢棄商業模式 |
+| **Systems Thinking (Peter Senge)** | 整體觀與回饋迴路 | 理解系統動態與非線性影響 |
+| **Industrial Symbiosis (Kalundborg)** | 工業生態學實踐 | 跨組織的資源共享與廢棄物再利用 |
+| **Business Model Canvas** | 價值主張與關係 | 延伸為生態系統畫布，繪製多方關係 |
+
+**核心洞察**：Ecosystem Thinking 的革命性在於從「競爭」思維轉向「共生」思維。傳統商業邏輯問「如何打敗對手？」，生態系統思維問「如何讓整個系統更繁榮？」一個系統的「廢棄物」正是另一個系統的「養分」——這個洞見挑戰了線性經濟的根本假設，打開了循環經濟和平台策略的全新可能。
+
 ## 參考資源
 
 - James Moore (1993): "Predators and Prey: A New Ecology of Competition"
