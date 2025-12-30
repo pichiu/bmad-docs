@@ -328,17 +328,57 @@ path: _bmad/bmm/agents/ux-designer.md
 
 ## 溝通風格光譜
 
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'quadrant1Fill': '#e3f2fd', 'quadrant2Fill': '#fff3e0', 'quadrant3Fill': '#c8e6c9', 'quadrant4Fill': '#fce4ec'}}}%%
+quadrantChart
+    title 代理溝通風格分布
+    x-axis 簡潔 --> 詳細
+    y-axis 冷靜 --> 熱情
+
+    quadrant-1 詳細熱情
+    quadrant-2 簡潔熱情
+    quadrant-3 簡潔冷靜
+    quadrant-4 詳細冷靜
+
+    Sally: [0.8, 0.9]
+    Mary: [0.7, 0.6]
+    Paige: [0.85, 0.5]
+    John: [0.55, 0.55]
+    Murat: [0.4, 0.35]
+    Winston: [0.3, 0.2]
+    Bob: [0.25, 0.4]
+    Barry: [0.35, 0.5]
+    Amelia: [0.15, 0.3]
 ```
-簡潔 ←────────────────────────────────────→ 詳細
 
-   Amelia    Bob    Barry    John    Mary    Paige
-   (dev)    (sm)   (quick)  (pm)  (analyst) (tech-writer)
+**技術概念說明：Personality Matrix（人格矩陣）**
 
-冷靜 ←────────────────────────────────────→ 熱情
+這種二維分類幫助 Party Mode 選擇互補的代理組合：
 
-   Winston   Murat   John    Mary    Sally
-  (architect) (tea)  (pm)  (analyst) (ux-designer)
+```mermaid
+graph TB
+    subgraph MATRIX["Personality Matrix"]
+        Q1["🎨 詳細+熱情<br/>Sally, Mary"]
+        Q2["🚀 簡潔+熱情<br/>Barry"]
+        Q3["💻 簡潔+冷靜<br/>Amelia, Winston, Bob"]
+        Q4["📚 詳細+冷靜<br/>Paige, Murat"]
+    end
+
+    Q1 -.->|互補| Q3
+    Q2 -.->|互補| Q4
+
+    style Q1 fill:#fce4ec
+    style Q2 fill:#fff3e0
+    style Q3 fill:#e3f2fd
+    style Q4 fill:#c8e6c9
 ```
+
+| 象限 | 特色 | 適合場景 |
+|------|------|----------|
+| 詳細+熱情 | 深入且有感染力 | 創意發想、用戶研究 |
+| 簡潔+熱情 | 快速且激勵人心 | 快速原型、團隊動員 |
+| 簡潔+冷靜 | 精準且務實 | 技術決策、程式碼審查 |
+| 詳細+冷靜 | 全面且客觀 | 文件撰寫、測試規劃 |
 
 ---
 
@@ -399,3 +439,80 @@ path: _bmad/bmm/agents/ux-designer.md
 | [workflow.md](./workflow-analysis.md) | 載入 | 定義如何處理 manifest |
 | [step-01-agent-loading.md](./step-01-analysis.md) | 讀取 | 解析並建立名冊 |
 | [step-02-discussion-orchestration.md](./step-02-analysis.md) | 使用 | 代理選擇依據 |
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((agent-manifest.csv<br/>代理登錄表))
+    欄位結構
+      識別 name/displayName
+      視覺 icon/title
+      人格 identity/style
+      原則 principles
+      來源 module/path
+    代理分類
+      Core 模組
+        bmad-master
+      BMM 模組
+        9 位專家
+    風格光譜
+      簡潔vs詳細
+      冷靜vs熱情
+    選擇邏輯
+      主題映射
+      互補配對
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Registry Pattern** | CSV 清單 | 集中管理所有代理資訊 |
+| **Personality Matrix** | 風格分類 | 二維空間定位代理特質 |
+| **Complementary Pairing** | 代理配對 | 確保多元觀點組合 |
+| **Separation of Concerns** | module 分類 | Core vs BMM 模組分離 |
+| **Reference Pattern** | path 欄位 | 指向完整定義檔案 |
+
+### 代理專業領域視覺化
+
+```mermaid
+graph TB
+    subgraph DOMAINS["🎯 專業領域分布"]
+        subgraph TECH["技術/開發"]
+            T1["🏗️ Winston<br/>架構"]
+            T2["💻 Amelia<br/>開發"]
+            T3["🚀 Barry<br/>快速開發"]
+            T4["🧪 Murat<br/>測試"]
+        end
+
+        subgraph BIZ["商業/策略"]
+            B1["📊 Mary<br/>分析"]
+            B2["📋 John<br/>產品"]
+        end
+
+        subgraph MGMT["流程/管理"]
+            M1["🏃 Bob<br/>敏捷"]
+            M2["🧙 BMad Master<br/>協調"]
+        end
+
+        subgraph DESIGN["設計/文件"]
+            D1["🎨 Sally<br/>UX"]
+            D2["📚 Paige<br/>文件"]
+        end
+    end
+
+    TECH -.->|協作| BIZ
+    BIZ -.->|協作| DESIGN
+    MGMT -.->|協調| TECH
+    MGMT -.->|協調| DESIGN
+
+    style TECH fill:#e3f2fd
+    style BIZ fill:#fff3e0
+    style MGMT fill:#c8e6c9
+    style DESIGN fill:#fce4ec
+```
+
+**核心洞察**：`agent-manifest.csv` 是 BMAD 框架的「通訊錄」，透過 Registry Pattern 集中管理所有代理資訊。Personality Matrix 設計使代理選擇不只考慮專業匹配，還能組合互補風格。這種設計確保 Party Mode 的多代理對話既有專業深度，又有風格多樣性，創造豐富的協作體驗。
