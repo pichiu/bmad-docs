@@ -137,4 +137,55 @@ graph LR
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術類別 | 相關設計模式/方法論 | 核心價值 |
+|----------|---------------------|----------|
+| **Collaborative** | Psychological Safety, Mob Programming | 團隊智慧湧現 |
+| **Creative** | Lateral Thinking, Design Thinking | 突破線性限制 |
+| **Deep** | Root Cause Analysis, Systems Thinking | 挖掘真正問題 |
+| **Structured** | Framework Pattern, Decision Tree | 系統化分析 |
+| **Introspective** | Reflective Practice, Mindfulness | 內在覺察 |
+| **Theatrical** | Role-Based Design, Persona Method | 換位思考 |
+| **Wild** | Chaos Engineering, Anti-Pattern Analysis | 打破常規 |
+| **Biomimetic** | Biomimicry, Nature-Inspired Design | 自然智慧 |
+| **Quantum** | Paradox Thinking, Multi-State Analysis | 超越二元 |
+| **Cultural** | Cross-Cultural Design, Tradition Mining | 文化融合 |
+
+### 創意思維的光譜視覺化
+
+```mermaid
+graph TB
+    subgraph SPECTRUM["🎨 腦力激盪技術光譜"]
+        subgraph STRUCTURED_POLE["結構化極"]
+            S1[SCAMPER]
+            S2[Six Hats]
+            S3[Mind Mapping]
+        end
+
+        subgraph BALANCED["平衡區"]
+            B1[Five Whys]
+            B2[Role Playing]
+            B3[Analogical]
+        end
+
+        subgraph WILD_POLE["狂野極"]
+            W1[Chaos Engineering]
+            W2[Quantum]
+            W3[Pirate Code]
+        end
+    end
+
+    STRUCTURED_POLE -->|漸進| BALANCED
+    BALANCED -->|激進| WILD_POLE
+
+    style STRUCTURED_POLE fill:#e3f2fd
+    style BALANCED fill:#fff3e0
+    style WILD_POLE fill:#fce4ec
+```
+
+**核心洞察**：62 種腦力激盪技術形成了一個完整的創意工具箱，從高度結構化的 SCAMPER 到狂野不羈的 Chaos Engineering。關鍵不在於哪種技術「最好」，而在於根據情境選擇正確的工具——就像木匠不會只用錘子一樣。團隊的創意能力不是單一技術的熟練度，而是在技術光譜上靈活移動的能力。成功的創意流程往往是：先用 Wild 技術打開可能性邊界，再用 Deep 技術挖掘真正問題，最後用 Structured 技術收斂到可執行方案。
+
+---
+
 *本資料庫為 BMAD Brainstorming Workflow 的技術參考文件*
