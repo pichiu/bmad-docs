@@ -58,17 +58,23 @@ description: Orchestrates group discussions between all installed BMAD agents...
 ### 2. INITIALIZATION
 
 **配置載入流程：**
-```
-config.yaml
-    ↓
-解析變數：
-├── project_name
-├── output_folder
-├── user_name
-├── communication_language
-├── document_output_language
-├── user_skill_level
-└── date (系統生成)
+
+```mermaid
+flowchart TD
+    subgraph LOAD["⚙️ 配置載入流程"]
+        CONFIG["📄 config.yaml"] --> PARSE["🔍 解析變數"]
+
+        PARSE --> V1["project_name"]
+        PARSE --> V2["output_folder"]
+        PARSE --> V3["user_name"]
+        PARSE --> V4["communication_language"]
+        PARSE --> V5["document_output_language"]
+        PARSE --> V6["user_skill_level"]
+        PARSE --> V7["date<br/>(系統生成)"]
+    end
+
+    style CONFIG fill:#e3f2fd
+    style PARSE fill:#fff3e0
 ```
 
 **路徑定義：**
@@ -121,16 +127,49 @@ Welcome {{user_name}}! All BMAD agents are here...
 #### 代理選擇智慧 (Agent Selection Intelligence)
 
 **選擇流程：**
+
+```mermaid
+flowchart TD
+    subgraph SELECTION["🎯 Agent Selection Intelligence"]
+        INPUT["📝 用戶輸入"] --> ANALYZE["🔍 關聯性分析"]
+
+        subgraph FACTORS["分析因素"]
+            F1["領域需求判斷"]
+            F2["專業匹配"]
+            F3["上下文考量"]
+            F4["先前貢獻權重"]
+        end
+
+        ANALYZE --> FACTORS
+        FACTORS --> RESULT["✅ 選擇 2-3 個最相關代理"]
+    end
+
+    style INPUT fill:#e3f2fd
+    style ANALYZE fill:#fff3e0
+    style RESULT fill:#c8e6c9
 ```
-用戶輸入
-    ↓
-關聯性分析
-├── 領域需求判斷
-├── 專業匹配
-├── 上下文考量
-└── 先前貢獻權重
-    ↓
-選擇 2-3 個最相關代理
+
+**技術概念說明：Relevance Scoring Algorithm（關聯性評分演算法）**
+
+這是一種多因素評分機制，結合多個維度判斷最適合回應的代理：
+
+```mermaid
+graph LR
+    subgraph SCORING["Relevance Scoring"]
+        I["輸入"] --> S1["領域分數"]
+        I --> S2["專業分數"]
+        I --> S3["脈絡分數"]
+        I --> S4["參與權重"]
+
+        S1 --> SUM["加權總分"]
+        S2 --> SUM
+        S3 --> SUM
+        S4 --> SUM
+
+        SUM --> TOP["取前 2-3 名"]
+    end
+
+    style SCORING fill:#f5f5f5
 ```
 
 **優先順序規則：**
@@ -157,17 +196,45 @@ exit_triggers: ['*exit', 'goodbye', 'end party', 'quit']  # 退出觸發詞
 ```
 
 **狀態轉換圖：**
+
+```mermaid
+stateDiagram-v2
+    [*] --> INIT: 啟動
+    INIT --> STEP1: stepsCompleted: []
+    STEP1 --> STEP2: stepsCompleted: [1]<br/>agents_loaded: true
+    STEP2 --> STEP3: party_active: true
+    STEP3 --> DONE: stepsCompleted: [1,2,3]<br/>party_active: false
+    DONE --> [*]
+
+    INIT: 初始化
+    STEP1: Step 1 完成
+    STEP2: Step 2 進行中
+    STEP3: Step 3 完成
+    DONE: 結束
 ```
-[初始化]
-    ↓ stepsCompleted: []
-[Step 1 完成]
-    ↓ stepsCompleted: [1], agents_loaded: true
-[Step 2 進行中]
-    ↓ party_active: true
-[Step 3 完成]
-    ↓ stepsCompleted: [1, 2, 3], party_active: false
-[結束]
+
+**技術概念說明：Finite State Machine（有限狀態機）**
+
+Party Mode 使用 FSM 追蹤工作流程狀態，每個狀態有明確的轉換條件：
+
+```mermaid
+graph LR
+    subgraph FSM["State Machine Pattern"]
+        STATE["目前狀態"] --> EVENT["事件觸發"]
+        EVENT --> TRANS["狀態轉換"]
+        TRANS --> NEW["新狀態"]
+        NEW --> ACTION["執行動作"]
+    end
+
+    style FSM fill:#f5f5f5
 ```
+
+| 狀態 | 進入條件 | 關鍵變數變化 |
+|------|----------|--------------|
+| INIT | 工作流程啟動 | `stepsCompleted: []` |
+| STEP1 | 配置載入完成 | `agents_loaded: true` |
+| STEP2 | 代理載入完成 | `party_active: true` |
+| DONE | 退出觸發 | `party_active: false` |
 
 ---
 
@@ -258,3 +325,78 @@ exit_triggers: ['*exit', 'goodbye', 'end party', 'quit']  # 退出觸發詞
 3. **Strategy Pattern** - 代理選擇策略可替換
 4. **Observer Pattern** - 退出觸發詞監聽
 5. **Decorator Pattern** - TTS 裝飾每個回應
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((workflow.md<br/>主工作流程))
+    架構設計
+      Micro-file Architecture
+      Sequential Orchestration
+      State Machine
+    初始化
+      config.yaml 載入
+      變數解析
+      路徑定義
+    代理管理
+      manifest 處理
+      智慧選擇
+      人格合併
+    對話規範
+      角色一致性
+      問題處理協議
+      品質控制
+    退出機制
+      觸發詞監聽
+      自然結束偵測
+      優雅退出
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Micro-file Architecture** | 步驟檔案 | 單一職責，易於維護擴展 |
+| **Finite State Machine** | Frontmatter 狀態 | 明確的狀態轉換與追蹤 |
+| **Strategy Pattern** | 代理選擇 | 可替換的選擇演算法 |
+| **Observer Pattern** | 退出觸發 | 關鍵字監聽與事件驅動 |
+| **Decorator Pattern** | TTS 整合 | 為回應添加語音輸出 |
+| **Relevance Scoring** | 代理匹配 | 多因素評分機制 |
+
+### 完整工作流程視覺化
+
+```mermaid
+flowchart TB
+    subgraph WORKFLOW["📋 Party Mode 完整流程"]
+        START["🚀 啟動"] --> INIT["⚙️ 初始化<br/>載入 config.yaml"]
+
+        INIT --> S1["📥 Step 1<br/>Agent Loading"]
+        S1 --> S2["💬 Step 2<br/>Discussion<br/>Orchestration"]
+        S2 --> CHECK{退出觸發?}
+
+        CHECK -->|否| S2
+        CHECK -->|是| S3["👋 Step 3<br/>Graceful Exit"]
+        S3 --> END["✅ 結束"]
+    end
+
+    subgraph RESOURCES["📦 資源依賴"]
+        CSV["agent-manifest.csv"]
+        CONFIG["config.yaml"]
+        TTS["bmad-speak.sh"]
+    end
+
+    INIT -.-> CONFIG
+    S1 -.-> CSV
+    S2 -.-> TTS
+
+    style START fill:#e3f2fd
+    style END fill:#c8e6c9
+    style S1 fill:#fff3e0
+    style S2 fill:#fce4ec
+    style S3 fill:#e0f2f1
+```
+
+**核心洞察**：`workflow.md` 是 Party Mode 的「藍圖」，透過 Micro-file Architecture 將複雜的多代理協調分解為三個清晰的步驟。State Machine 模式確保工作流程狀態可追蹤、可恢復。Relevance Scoring 演算法實現智慧代理選擇，而 Observer Pattern 則提供靈活的退出機制。這種設計使 Party Mode 既具備高度互動性，又保持良好的可維護性。
