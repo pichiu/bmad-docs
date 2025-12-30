@@ -89,25 +89,45 @@ amazing collaborative discussion.
 ### 階段 3: 建立代理名冊
 
 **名冊建立流程：**
+
+```mermaid
+flowchart TD
+    subgraph MERGE["📋 名冊建立流程"]
+        CSV["📄 agent-manifest.csv"] -->|解析| MD["📁 各代理檔案 (.md)"]
+
+        subgraph TRAITS["代理特質"]
+            T1["personality traits"]
+            T2["capabilities"]
+            T3["communication styles"]
+        end
+
+        MD --> TRAITS
+        TRAITS -->|合併| ROSTER["✅ 完整代理名冊<br/>(Merged Agent Roster)"]
+    end
+
+    style CSV fill:#e3f2fd
+    style ROSTER fill:#c8e6c9
 ```
-┌─────────────────────────┐
-│  agent-manifest.csv     │
-└───────────┬─────────────┘
-            │ 解析
-            ▼
-┌─────────────────────────┐
-│  各代理檔案 (.md)       │
-│  - personality traits   │
-│  - capabilities         │
-│  - communication styles │
-└───────────┬─────────────┘
-            │ 合併
-            ▼
-┌─────────────────────────┐
-│  完整代理名冊           │
-│  (Merged Agent Roster)  │
-└─────────────────────────┘
+
+**技術概念說明：Data Merge Pattern（資料合併模式）**
+
+這是一種將多個資料來源合併為單一完整實體的設計模式：
+
+```mermaid
+graph LR
+    subgraph MERGE_PATTERN["Data Merge Pattern"]
+        S1["來源 A<br/>CSV 基礎資料"] --> MERGE["合併器"]
+        S2["來源 B<br/>MD 詳細資料"] --> MERGE
+        MERGE --> OUT["合併後實體"]
+    end
+
+    style MERGE_PATTERN fill:#f5f5f5
 ```
+
+| 資料來源 | 提供內容 | 優先順序 |
+|----------|----------|----------|
+| CSV | 基礎識別、角色摘要 | 結構化索引 |
+| MD 檔案 | 詳細人格、完整配置 | 豐富細節 |
 
 **驗證項目：**
 - ✅ 代理可用性
@@ -226,19 +246,35 @@ party_active: true
 
 ## 狀態轉換
 
+```mermaid
+stateDiagram-v2
+    state "執行前" as BEFORE {
+        [*] --> B1: stepsCompleted: []
+        B1 --> B2: agents_loaded: false
+        B2 --> B3: party_active: false
+    }
+
+    state "執行後" as AFTER {
+        [*] --> A1: stepsCompleted: [1]
+        A1 --> A2: agents_loaded: true
+        A2 --> A3: party_active: true
+    }
+
+    BEFORE --> AFTER: 執行 Step 1
 ```
-[執行前]
-├── stepsCompleted: []
-├── agents_loaded: false
-└── party_active: false
 
-        │ 執行 Step 1
-        ▼
+**技術概念說明：Immutable State Transition（不可變狀態轉換）**
 
-[執行後]
-├── stepsCompleted: [1]
-├── agents_loaded: true
-└── party_active: true
+每次狀態變更都產生新的狀態快照，而非修改現有狀態：
+
+```mermaid
+graph LR
+    subgraph TRANSITION["State Transition"]
+        OLD["舊狀態"] --> ACTION["執行動作"]
+        ACTION --> NEW["新狀態<br/>(完整複製+更新)"]
+    end
+
+    style TRANSITION fill:#f5f5f5
 ```
 
 ---
@@ -268,3 +304,63 @@ party_active: true
 2. **不過度負擔** - 避免一次呈現太多資訊
 3. **代表性** - 選擇不同領域的代理
 4. **引發興趣** - 激發用戶提問動機
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Step 1<br/>Agent Loading))
+    載入流程
+      讀取 manifest CSV
+      解析代理欄位
+      合併人格特質
+    驗證機制
+      格式驗證
+      完整性檢查
+      可用性確認
+    用戶互動
+      歡迎訊息
+      代理範例展示
+      確認選項
+    狀態管理
+      frontmatter 更新
+      agents_loaded
+      party_active
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Data Merge Pattern** | 名冊建立 | 合併多來源資料為完整實體 |
+| **Immutable State** | 狀態轉換 | 可追蹤、可回溯的狀態變更 |
+| **Confirmation Gate** | [C] 選項 | 用戶主動確認才進入下一階段 |
+| **Progressive Disclosure** | 代理展示 | 先呈現 3-4 個，避免資訊過載 |
+| **Validation Guard** | 載入協議 | 確保資料完整才繼續 |
+
+### 完整執行流程視覺化
+
+```mermaid
+flowchart TB
+    subgraph STEP1["📥 Step 1: Agent Loading"]
+        START["🚀 開始"] --> LOAD["📄 載入 manifest CSV"]
+        LOAD --> PARSE["🔍 解析代理資料"]
+        PARSE --> MERGE["🔗 合併人格特質"]
+        MERGE --> VALIDATE["✅ 驗證完整性"]
+        VALIDATE --> WELCOME["🎉 顯示歡迎訊息"]
+        WELCOME --> SAMPLE["👥 展示代理範例"]
+        SAMPLE --> OPTION["⏸️ 呈現 [C] 選項"]
+        OPTION --> WAIT{等待用戶}
+
+        WAIT -->|C| UPDATE["💾 更新 frontmatter"]
+        UPDATE --> NEXT["➡️ 載入 Step 2"]
+    end
+
+    style START fill:#e3f2fd
+    style NEXT fill:#c8e6c9
+    style WAIT fill:#fff3e0
+```
+
+**核心洞察**：Step 1 是 Party Mode 的「大門」，透過 Data Merge Pattern 將分散的代理資料整合為完整名冊。Confirmation Gate 設計確保用戶明確同意後才進入對話，這種「用戶控制」理念貫穿整個 BMAD 框架。Progressive Disclosure 原則使初始展示不會過於繁雜，同時又能展現團隊多樣性。
