@@ -43,30 +43,60 @@ _bmad/
 
 ## 整體流程圖
 
+```mermaid
+flowchart TB
+    subgraph PARTY["🎉 Party Mode Workflow"]
+        direction TB
+
+        subgraph STEPS["執行步驟"]
+            direction LR
+            S1["📥 Step 1<br/>Agent Loading"] --> S2["💬 Step 2<br/>Discussion<br/>Orchestration"]
+            S2 --> S3["👋 Step 3<br/>Graceful Exit"]
+        end
+
+        subgraph DATA["資料來源"]
+            CSV["📋 agent-manifest.csv<br/>代理清單"]
+            CONFIG["⚙️ config.yaml<br/>核心配置"]
+        end
+
+        subgraph HOOKS["擴展機制"]
+            TTS["🔊 TTS Hook<br/>bmad-speak.sh"]
+        end
+
+        S1 -.->|載入代理| CSV
+        CSV -.->|讀取配置| CONFIG
+        S2 -.->|語音輸出| TTS
+    end
+
+    style S1 fill:#e3f2fd
+    style S2 fill:#fff3e0
+    style S3 fill:#c8e6c9
+    style CSV fill:#fce4ec
+    style CONFIG fill:#f3e5f5
+    style TTS fill:#e0f2f1
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                    Party Mode Workflow                           │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌──────────────┐     ┌──────────────┐     ┌──────────────┐    │
-│  │   Step 1     │     │   Step 2     │     │   Step 3     │    │
-│  │ Agent Loading│──▶  │ Discussion   │──▶  │ Graceful     │    │
-│  │              │     │ Orchestration│     │ Exit         │    │
-│  └──────┬───────┘     └──────┬───────┘     └──────────────┘    │
-│         │                    │                                   │
-│         ▼                    ▼                                   │
-│  ┌──────────────┐     ┌──────────────┐                          │
-│  │ agent-       │     │ TTS Hook     │                          │
-│  │ manifest.csv │     │ bmad-speak.sh│                          │
-│  └──────────────┘     └──────────────┘                          │
-│         │                                                        │
-│         ▼                                                        │
-│  ┌──────────────┐                                               │
-│  │ config.yaml  │                                               │
-│  └──────────────┘                                               │
-│                                                                  │
-└─────────────────────────────────────────────────────────────────┘
+
+**技術概念說明：Pipeline Architecture（管道架構）**
+
+Party Mode 採用三階段管道設計，每個階段職責明確：
+
+```mermaid
+graph LR
+    subgraph PIPELINE["Pipeline Architecture"]
+        I["🎯 Input<br/>用戶請求"] --> P1["Stage 1<br/>載入代理"]
+        P1 --> P2["Stage 2<br/>對話協調"]
+        P2 --> P3["Stage 3<br/>優雅退出"]
+        P3 --> O["✅ Output<br/>會議完成"]
+    end
+
+    style PIPELINE fill:#f5f5f5
 ```
+
+| 階段 | 職責 | 輸入 | 輸出 |
+|------|------|------|------|
+| Stage 1 | 代理載入 | 用戶請求 + CSV | 已載入代理列表 |
+| Stage 2 | 對話協調 | 代理 + 用戶訊息 | 多代理回應 |
+| Stage 3 | 優雅退出 | 退出訊號 | 清理完成 |
 
 ---
 
@@ -154,3 +184,76 @@ _bmad/
 ## 下一步
 
 點擊上方的深度分析連結，深入了解每個檔案的詳細運作機制。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Party Mode<br/>多代理協調))
+    架構設計
+      Micro-file Architecture
+      Pipeline Architecture
+      Frontmatter State Tracking
+    代理管理
+      Intelligent Selection
+      Character Consistency
+      Role-based Expertise
+    互動機制
+      Discussion Orchestration
+      TTS Integration
+      Exit Triggers
+    資料來源
+      agent-manifest.csv
+      config.yaml
+      Agent Personas
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Pipeline Architecture** | 三步驟流程 | 清晰的階段劃分與資料流 |
+| **Micro-file Architecture** | 步驟檔案 | 單一職責，易於維護 |
+| **Frontmatter State Tracking** | YAML 狀態 | 結構化狀態管理 |
+| **Intelligent Agent Selection** | Step 1 | 基於主題的智慧代理選擇 |
+| **Character Consistency** | Step 2 | 維持代理人格一致性 |
+| **Observer Pattern** | TTS Hook | 回應事件觸發語音輸出 |
+| **Graceful Degradation** | Step 3 | 優雅處理退出與清理 |
+
+### 代理選擇機制視覺化
+
+```mermaid
+graph TB
+    subgraph SELECTION["🎯 Intelligent Agent Selection"]
+        TOPIC["📝 討論主題"] --> ANALYZE["🔍 主題分析"]
+        ANALYZE --> MATCH["🎲 專長匹配"]
+
+        MATCH --> P["🥇 Primary Agent<br/>核心專家"]
+        MATCH --> S["🥈 Secondary Agent<br/>互補觀點"]
+        MATCH --> T["🥉 Tertiary Agent<br/>跨域洞見"]
+    end
+
+    subgraph AGENTS["👥 10 位專業代理"]
+        A1["🧙 BMad Master"]
+        A2["📊 Analyst"]
+        A3["🏗️ Architect"]
+        A4["💻 Developer"]
+        A5["📋 PM"]
+        A6["🚀 Quick Dev"]
+        A7["🏃 SM"]
+        A8["🧪 TEA"]
+        A9["📚 Tech Writer"]
+        A10["🎨 UX Designer"]
+    end
+
+    P -.-> AGENTS
+    S -.-> AGENTS
+    T -.-> AGENTS
+
+    style SELECTION fill:#e3f2fd
+    style AGENTS fill:#fff3e0
+```
+
+**核心洞察**：Party Mode 是 BMAD 框架中最具互動性的工作流程，透過智慧代理選擇與角色一致性機制，實現多專家協作的自然對話體驗。它展示了如何將複雜的多代理協調簡化為三個明確的管道階段，同時保持每個代理的獨特人格與專業價值。
