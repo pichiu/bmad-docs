@@ -293,6 +293,18 @@ flowchart LR
 - 這個方案是從生態系統「提取」還是「貢獻」？
 - 我們可以從大自然「借用」什麼，並完整歸還？
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Seven Generation Principle** | 易洛魁聯盟的長期思維 | 評估決策對 150 年後的影響 |
+| **Cradle to Cradle** | 循環設計思維 | 將「廢棄物即養分」原則應用於產品 |
+| **Long Now Foundation** | 萬年時鐘計畫 | 培養長期視野的機構與工具 |
+| **TEK (Traditional Ecological Knowledge)** | 傳統生態知識 | 從千年實踐中學習永續智慧 |
+| **Doughnut Economics (Kate Raworth)** | 甜甜圈經濟學 | 在社會基礎與生態上限之間運作 |
+
+**核心洞察**：Indigenous Wisdom 最深刻的教導是時間尺度的轉換。當我們從「本季財報」的視角轉向「七代後子孫」的視角，決策邏輯會根本改變。原住民思維提醒我們：人類不是地球的主人，而是守護者。這種謙卑不是軟弱，而是真正理解永續的智慧——因為最終，任何不永續的系統都會崩潰。
+
 ## 參考資源
 
 - Robin Wall Kimmerer (2013): *Braiding Sweetgrass: Indigenous Wisdom, Scientific Knowledge, and the Teachings of Plants*
