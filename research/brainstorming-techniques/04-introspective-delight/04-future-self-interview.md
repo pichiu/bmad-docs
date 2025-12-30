@@ -392,6 +392,20 @@ flowchart TD
 - **臨終視角**：增加親社會行為和有意義的選擇
 - **自我連續性**：感覺與未來自我連結的人做更好的長期決策
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Temporal Self Theory (時間自我理論)** | 未來自我連結 | Hershfield研究：連結未來自我改善決策 |
+| **Backcasting (回推法)** | 從未來回推 | 先定義終點，再逆推路徑 |
+| **Begin with End in Mind** | Covey的第二習慣 | 用終點指引當下選擇 |
+| **Regret Minimization Framework** | Bezos決策法 | 80歲回看，最小化遺憾 |
+| **Prospective Hindsight (前瞻性後見)** | 預演未來視角 | 研究顯示能提高預測準確度30% |
+
+**核心洞察**：大腦把「未來的我」當成陌生人——神經影像研究發現，想到10年後的自己，激活的腦區和想到陌生人是一樣的。這就是為什麼我們會做傷害未來自我的決定（不存錢、不運動、不追求夢想），因為那感覺像是在傷害別人。未來自我訪談的魔力在於：透過生動的視覺化和對話，讓未來自我從「陌生人」變成「我認識的人」，甚至是「我愛的人」。當你真正「見過」80歲的自己，為他/她做決定就不再那麼困難。
+
+---
+
 ## 參考資源
 
 - [Harvard Business Review: A Simple Way to Stay Grounded in Stressful Moments](https://hbr.org/2019/01/a-simple-way-to-stay-grounded-in-stressful-moments)
