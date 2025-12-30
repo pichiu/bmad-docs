@@ -68,4 +68,16 @@ flowchart TD
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Nature's Solutions** | Biomimicry, Janine Benyus Method | 38億年研發的解決方案 |
+| **Ecosystem Thinking** | Systems Ecology, Circular Economy | 自然界沒有垃圾的設計 |
+| **Evolutionary Pressure** | Natural Selection, Iterative Design | 讓環境選擇最適解 |
+
+**核心洞察**：大自然是人類可以使用的最大「研發實驗室」——38億年的演化實驗，數百萬種「產品」，零研發成本。Velcro 來自植物刺、高速列車頭來自翠鳥嘴、節能建築來自白蟻丘。仿生思維的關鍵是「功能抽象」：不是問「什麼動物很酷」，而是問「什麼生物解決過類似的問題」。
+
+---
+
 *返回 [技術總覽](../index.md)*

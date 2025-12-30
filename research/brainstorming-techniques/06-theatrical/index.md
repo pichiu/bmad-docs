@@ -110,4 +110,19 @@ graph LR
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Time Travel Talk Show** | Temporal Perspective, Counterfactual | 穿越時空的訪談 |
+| **Alien Anthropologist** | Defamiliarization, Outsider View | 用完全陌生的眼光看熟悉 |
+| **Dream Fusion Laboratory** | Creative Recombination | 夢境般的自由融合 |
+| **Emotion Orchestra** | Emotional Design, Affective Computing | 情感作為設計驅動 |
+| **Parallel Universe Cafe** | Multiverse Thinking | 探索多重現實可能 |
+| **Persona Journey** | Deep Roleplaying, Method Acting | 完全沉浸的角色體驗 |
+
+**核心洞察**：戲劇類技術利用了人類天生的「假裝」能力——同一個人在角色扮演時會說出平時不敢說的話。當你不是「自己」在發言時，你的內在審查機制會放鬆。Alien Anthropologist 問「這是什麼奇怪的習俗」比「這個流程有什麼問題」更能揭示隱藏的假設，因為前者允許你用無知者的眼光看世界。
+
+---
+
 *返回 [技術總覽](../index.md)*

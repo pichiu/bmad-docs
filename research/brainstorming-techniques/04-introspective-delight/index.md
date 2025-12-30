@@ -115,4 +115,19 @@ graph TD
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Inner Child Conference** | Parts Work, IFS (Internal Family Systems) | 與內在聲音對話 |
+| **Shadow Work Mining** | Jung Shadow Integration | 整合被壓抑的部分 |
+| **Values Archaeology** | Values Clarification, ACT | 發現核心價值 |
+| **Future Self Interview** | Temporal Self Theory | 從未來視角看現在 |
+| **Body Wisdom Dialogue** | Embodied Cognition, Somatic | 身體是智慧的載體 |
+| **Permission Giving** | Limiting Beliefs Work | 打破自我設限 |
+
+**核心洞察**：內省類技術的前提是：你內心已經知道答案，只是需要正確的方式來提取它。這些技術不是要給你新的資訊，而是幫你聆聽你一直忽略的聲音——無論是內在小孩的恐懼、身體的直覺、還是未來自己的智慧。最深刻的創意往往來自最深刻的自我了解。
+
+---
+
 *返回 [技術總覽](../index.md)*

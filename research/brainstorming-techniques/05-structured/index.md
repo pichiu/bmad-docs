@@ -150,6 +150,20 @@ graph TD
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **SCAMPER** | Systematic Innovation, Checklist Method | 七個創意鏡頭系統化掃描 |
+| **Six Thinking Hats** | de Bono Parallel Thinking | 分離思維模式避免混亂 |
+| **Mind Mapping** | Radiant Thinking, Buzan Method | 視覺化關聯性擴散 |
+| **Decision Tree** | Decision Analysis, Game Theory | 系統化路徑規劃 |
+| **Solution Matrix** | Multi-Criteria Decision Analysis | 多維度權衡評估 |
+
+**核心洞察**：結構化技術的價值在於「可教、可學、可重複」。當你沒有靈感時，SCAMPER 的七個問題給你起點；當團隊思維混亂時，Six Thinking Hats 分離不同模式；當想法太多時，Solution Matrix 幫你評估選擇。這些技術不是創意的替代品，而是創意的腳手架——當你不知道從哪裡開始時，它們告訴你第一步該往哪裡走。
+
+---
+
 **類別維護者**：BMAD Team
 **最後更新**：2025-12-30
 **版本**：1.0.0

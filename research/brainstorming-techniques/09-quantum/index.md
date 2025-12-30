@@ -77,4 +77,16 @@ flowchart TD
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Observer Effect** | Framing Effect, Constructivism | 觀察/問法改變結果 |
+| **Entanglement Thinking** | Systems Thinking, Butterfly Effect | 遠距離的神秘關聯 |
+| **Superposition Collapse** | Decision Theory, Paradox Thinking | 決策前一切皆可能 |
+
+**核心洞察**：量子隱喻的價值不在於物理精確性，而在於它們挑戰了我們的「常識」。日常思維是非A即B，量子思維是「同時是A和B，直到你做決定」。這種思維模式對於處理複雜系統、矛盾需求和不確定未來特別有用——與其急著選邊站，不如先讓矛盾並存，看看會浮現什麼新的可能。
+
+---
+
 *返回 [技術總覽](../index.md)*

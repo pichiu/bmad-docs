@@ -113,4 +113,17 @@ graph TB
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Indigenous Wisdom** | Seventh Generation, Traditional Ecological Knowledge | 長期思維與自然共生 |
+| **Fusion Cuisine** | Cultural Recombination, Cross-Pollination | 跨文化的創意混搭 |
+| **Ritual Innovation** | Experience Design, Rites of Passage | 儀式創造意義與轉化 |
+| **Mythic Frameworks** | Campbell's Monomyth, Archetypal Psychology | 普世敘事的力量 |
+
+**核心洞察**：文化類技術提醒我們：我們不是從零開始創新，而是站在人類數千年累積的智慧之上。原住民的「七代思維」（做決定時考慮七代後的影響）比任何現代永續框架都更有深度；Joseph Campbell 的「英雄之旅」被用於《星際大戰》和無數品牌故事。有效的文化借鑑不是複製表面符號，而是理解背後的深層智慧。
+
+---
+
 *返回 [技術總覽](../index.md)*

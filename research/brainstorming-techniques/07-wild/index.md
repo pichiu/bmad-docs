@@ -158,4 +158,18 @@ graph TD
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Chaos Engineering** | Netflix Chaos Monkey, Antifragility | 故意破壞來發現脆弱點 |
+| **Anti-Solution** | Reverse Problem Solving | 設計最糟方案來找好方案 |
+| **Pirate Code** | Rule Breaking as Method | 無視一切規則看看會怎樣 |
+| **Zombie Apocalypse** | Extreme Scenario Planning | 極端情境揭示核心需求 |
+| **Quantum Superposition** | Both/And Thinking | 同時持有矛盾的立場 |
+
+**核心洞察**：狂野技術是「核選項」——當所有正常方法都失敗時才使用。它們的價值不在於產出的想法本身，而在於它們打破的心理障礙。當你花一小時認真規劃殭屍末日生存策略後，「在會議上提出瘋狂想法」突然變得不那麼可怕了。狂野技術的真正目的是重新校準團隊的「可接受」標準。
+
+---
+
 *返回 [技術總覽](../index.md)*
