@@ -53,21 +53,25 @@
 ### 階段 1: 用戶輸入分析
 
 **分析流程：**
-```
-用戶訊息
-    │
-    ▼
-┌─────────────────────────┐
-│     輸入分析處理         │
-├─────────────────────────┤
-│ • 領域專業需求          │
-│ • 複雜度與深度需求      │
-│ • 對話上下文            │
-│ • 用戶特定代理提及      │
-└───────────┬─────────────┘
-            │
-            ▼
-      代理選擇決策
+
+```mermaid
+flowchart TD
+    subgraph ANALYSIS["🔍 用戶輸入分析"]
+        INPUT["📝 用戶訊息"] --> PROCESS["⚙️ 輸入分析處理"]
+
+        subgraph FACTORS["分析面向"]
+            F1["領域專業需求"]
+            F2["複雜度與深度需求"]
+            F3["對話上下文"]
+            F4["用戶特定代理提及"]
+        end
+
+        PROCESS --> FACTORS
+        FACTORS --> DECISION["🎯 代理選擇決策"]
+    end
+
+    style INPUT fill:#e3f2fd
+    style DECISION fill:#c8e6c9
 ```
 
 **分析標準：**
@@ -83,27 +87,37 @@
 ### 階段 2: 智慧代理選擇
 
 **選擇邏輯架構：**
+
+```mermaid
+flowchart TB
+    subgraph HIERARCHY["🎯 代理選擇層級"]
+        direction TB
+        PRIMARY["🥇 Primary Agent<br/>核心主題最佳匹配"] --> SECONDARY["🥈 Secondary Agent<br/>互補觀點或替代方案"]
+        SECONDARY --> TERTIARY["🥉 Tertiary Agent<br/>跨域洞見或魔鬼代言人<br/>(如有益處)"]
+    end
+
+    style PRIMARY fill:#ffd700
+    style SECONDARY fill:#c0c0c0
+    style TERTIARY fill:#cd7f32
 ```
-┌─────────────────────────────────────────┐
-│           代理選擇層級                   │
-├─────────────────────────────────────────┤
-│                                         │
-│  ┌─────────────┐                        │
-│  │ Primary     │ ← 核心主題最佳匹配     │
-│  │ Agent       │                        │
-│  └─────────────┘                        │
-│         │                               │
-│  ┌─────────────┐                        │
-│  │ Secondary   │ ← 互補觀點或替代方案   │
-│  │ Agent       │                        │
-│  └─────────────┘                        │
-│         │                               │
-│  ┌─────────────┐                        │
-│  │ Tertiary    │ ← 跨域洞見或魔鬼代言人 │
-│  │ Agent       │   (如有益處)           │
-│  └─────────────┘                        │
-│                                         │
-└─────────────────────────────────────────┘
+
+**技術概念說明：Tiered Selection Pattern（分層選擇模式）**
+
+這種設計確保回應的多維度與平衡：
+
+```mermaid
+graph LR
+    subgraph TIERS["Tiered Selection"]
+        T1["核心專家"] -->|互補| T2["第二觀點"]
+        T2 -->|擴展| T3["跨域視角"]
+    end
+
+    subgraph VALUE["價值貢獻"]
+        V1["深度"] --> V2["廣度"] --> V3["創新"]
+    end
+
+    style TIERS fill:#f5f5f5
+    style VALUE fill:#e8f5e9
 ```
 
 **優先規則：**
@@ -118,13 +132,37 @@
 ### 階段 3: 角色內回應生成
 
 **角色一致性要求：**
+
+```mermaid
+flowchart LR
+    subgraph GENERATE["🎭 代理回應生成"]
+        GEN["生成回應"] --> CS["communicationStyle<br/>套用溝通風格"]
+        GEN --> PR["principles<br/>反映決策原則"]
+        GEN --> ID["identity<br/>體現專業背景"]
+        GEN --> RO["role<br/>維持專業邊界"]
+    end
+
+    style GEN fill:#e3f2fd
+    style CS fill:#fff3e0
+    style PR fill:#fff3e0
+    style ID fill:#fff3e0
+    style RO fill:#fff3e0
 ```
-代理回應生成
-    │
-    ├── communicationStyle → 套用溝通風格
-    ├── principles          → 反映決策原則
-    ├── identity            → 體現專業背景
-    └── role                → 維持專業邊界
+
+**技術概念說明：Character Consistency Pattern（角色一致性模式）**
+
+每個回應都必須通過四個維度的檢驗，確保代理「入戲」：
+
+```mermaid
+graph TB
+    subgraph CONSISTENCY["Character Consistency Check"]
+        RESPONSE["待輸出回應"] --> CHECK{"四維度檢驗"}
+        CHECK -->|通過| OUTPUT["✅ 輸出"]
+        CHECK -->|失敗| REVISE["🔄 修正"]
+        REVISE --> RESPONSE
+    end
+
+    style CONSISTENCY fill:#f5f5f5
 ```
 
 **回應結構模板：**
@@ -157,15 +195,34 @@
 | 追問 | "How would you handle [specific aspect]?" |
 
 **對話流程規範：**
+
+```mermaid
+flowchart LR
+    subgraph RULES["💬 對話流程控制"]
+        R1["✅ 允許自然對話進展"]
+        R2["✅ 啟用代理間互相提問"]
+        R3["✅ 維持專業但有趣的對話"]
+        R4["✅ 適時包含人格驅動的幽默"]
+    end
+
+    style RULES fill:#e8f5e9
 ```
-┌────────────────────────────────────────────┐
-│           對話流程控制                      │
-├────────────────────────────────────────────┤
-│ ✅ 允許自然對話進展                        │
-│ ✅ 啟用代理間互相提問                      │
-│ ✅ 維持專業但有趣的對話                    │
-│ ✅ 適時包含人格驅動的幽默                  │
-└────────────────────────────────────────────┘
+
+**技術概念說明：Conversational Turn-Taking（對話輪替機制）**
+
+這是多代理對話的核心協調機制：
+
+```mermaid
+sequenceDiagram
+    participant U as 用戶
+    participant A1 as Agent 1
+    participant A2 as Agent 2
+    participant A3 as Agent 3
+
+    U->>A1: 提問
+    A1->>A2: 引用/回應
+    A2->>A3: 補充觀點
+    A3->>U: 總結/追問
 ```
 
 ---
@@ -373,3 +430,67 @@ Primary + Secondary + Tertiary 確保回應的深度與廣度。
 
 ### 4. 退出優雅處理
 支援多種退出方式，不會讓對話突然中斷。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Step 2<br/>Discussion<br/>Orchestration))
+    輸入分析
+      領域識別
+      複雜度評估
+      上下文考量
+    代理選擇
+      Primary Agent
+      Secondary Agent
+      Tertiary Agent
+    角色扮演
+      communicationStyle
+      principles
+      identity
+    跨代理對話
+      引用他人
+      建構觀點
+      禮貌異議
+    退出機制
+      觸發詞偵測
+      自然結束
+      用戶選擇
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Tiered Selection** | 代理選擇 | 多層次專家組合 |
+| **Character Consistency** | 回應生成 | 維持角色真實性 |
+| **Turn-Taking Protocol** | 跨代理對話 | 有序的多方互動 |
+| **Event Listener** | 退出偵測 | 關鍵字觸發機制 |
+| **Decorator Pattern** | TTS 整合 | 為回應添加語音 |
+| **Mediator Pattern** | 協調引擎 | 管理代理間互動 |
+
+### 完整討論協調視覺化
+
+```mermaid
+flowchart TB
+    subgraph ORCHESTRATION["💬 Step 2: Discussion Orchestration"]
+        INPUT["📝 用戶輸入"] --> ANALYZE["🔍 輸入分析"]
+        ANALYZE --> SELECT["🎯 代理選擇<br/>Primary + Secondary + Tertiary"]
+        SELECT --> GENERATE["🎭 角色內回應生成"]
+        GENERATE --> CROSS["🔄 跨代理對話整合"]
+        CROSS --> TTS["🔊 TTS 語音合成"]
+        TTS --> OPTION["⏸️ 呈現 [E] 選項"]
+
+        OPTION --> CHECK{退出觸發?}
+        CHECK -->|否| INPUT
+        CHECK -->|是| EXIT["➡️ 載入 Step 3"]
+    end
+
+    style INPUT fill:#e3f2fd
+    style EXIT fill:#c8e6c9
+    style CHECK fill:#fff3e0
+```
+
+**核心洞察**：Step 2 是 Party Mode 的「心臟」，透過 Tiered Selection Pattern 確保每次回應都有深度與廣度的平衡。Character Consistency Pattern 讓每個代理保持獨特人格，而 Mediator Pattern 則協調代理間的自然互動。這種設計使多代理對話既有結構性，又不失自然流暢的對話體驗。
