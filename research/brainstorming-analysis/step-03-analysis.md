@@ -84,36 +84,53 @@ and following the creative energy wherever it leads.
 
 **框架設定元素：**
 
+```mermaid
+flowchart TB
+    subgraph FRAME["🎯 Coaching Frame Setup"]
+        direction TB
+
+        subgraph ROLE["角色定位"]
+            R1["'creative partner, not just a respondent'"]
+            R2["→ 建立平等的夥伴關係"]
+        end
+
+        subgraph EXPECT["期望設定"]
+            E1["• 一次一個技術元素"]
+            E2["• 來回對話式探索"]
+            E3["• 在用戶想法上繼續發展"]
+            E4["• 深入有興趣的概念"]
+            E5["• 可以要求更多探索"]
+        end
+
+        subgraph CONTROL["用戶控制權"]
+            C1["'You're in control'"]
+            C2["→ 隨時可說 'next technique' 或 'move on'"]
+        end
+
+        ROLE --> EXPECT --> CONTROL
+    end
+
+    style ROLE fill:#e3f2fd
+    style EXPECT fill:#fff3e0
+    style CONTROL fill:#c8e6c9
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Coaching Frame Setup                      │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │                   角色定位                             │ │
-│  │                                                        │ │
-│  │  "creative partner, not just a respondent"            │ │
-│  │  → 建立平等的夥伴關係                                 │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │                   期望設定                             │ │
-│  │                                                        │ │
-│  │  • 一次一個技術元素                                   │ │
-│  │  • 來回對話式探索                                     │ │
-│  │  • 在用戶想法上繼續發展                               │ │
-│  │  • 深入有興趣的概念                                   │ │
-│  │  • 可以要求更多探索                                   │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │                   用戶控制權                           │ │
-│  │                                                        │ │
-│  │  "You're in control"                                  │ │
-│  │  → 隨時可說 "next technique" 或 "move on"             │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：Coaching vs Teaching 模式對比**
+
+```mermaid
+graph LR
+    subgraph TEACH["傳統教學模式"]
+        T1[教師] -->|傳授| T2[學生]
+        T2 -->|回答| T1
+    end
+
+    subgraph COACH["教練引導模式 ✓"]
+        C1[AI 教練] <-->|共同探索| C2[創意夥伴]
+        C2 <-->|建立發展| C1
+    end
+
+    style TEACH fill:#ffcdd2
+    style COACH fill:#c8e6c9
 ```
 
 ---
@@ -149,32 +166,61 @@ initial thoughts, and we'll develop them together."
 
 **回應適配邏輯：**
 
+```mermaid
+flowchart TD
+    INPUT((用戶回應)) --> DETECT{回應類型偵測}
+
+    DETECT -->|基本/簡短| BASIC["深入探索策略"]
+    DETECT -->|詳細/豐富| RICH["建立發展策略"]
+    DETECT -->|卡住/不確定| STUCK["溫和引導策略"]
+
+    subgraph BASIC_S["深入探索"]
+        B1["'Tell me more about...'"]
+        B2["'What would that look like...'"]
+        B3["'How does that connect...'"]
+    end
+
+    subgraph RICH_S["建立發展"]
+        R1["'I love how you...'"]
+        R2["'Let's build on that...'"]
+        R3["'What if we took that further...'"]
+    end
+
+    subgraph STUCK_S["溫和引導"]
+        S1["'No worries!'"]
+        S2["'Let me suggest...'"]
+        S3["'What do you think about...'"]
+    end
+
+    BASIC --> BASIC_S
+    RICH --> RICH_S
+    STUCK --> STUCK_S
+
+    BASIC_S --> NEXT((繼續對話))
+    RICH_S --> NEXT
+    STUCK_S --> NEXT
+
+    style INPUT fill:#fff9c4
+    style BASIC fill:#e3f2fd
+    style RICH fill:#c8e6c9
+    style STUCK fill:#ffecb3
+    style NEXT fill:#f3e5f5
 ```
-用戶回應
-    │
-    ├── 基本/簡短回應
-    │       │
-    │       ▼
-    │   深入探索
-    │   "Tell me more about..."
-    │   "What would that look like..."
-    │   "How does that connect..."
-    │
-    ├── 詳細/豐富回應
-    │       │
-    │       ▼
-    │   建立發展
-    │   "I love how you..."
-    │   "Let's build on that..."
-    │   "What if we took that further..."
-    │
-    └── 卡住/不確定
-            │
-            ▼
-        溫和引導
-        "No worries!"
-        "Let me suggest..."
-        "What do you think about..."
+
+**技術概念說明：Adaptive Response Pattern（適應性回應模式）**
+
+這是**狀態機模式**與**策略模式**的結合應用：
+
+```mermaid
+stateDiagram-v2
+    [*] --> Listening: 等待用戶回應
+    Listening --> Analyzing: 收到回應
+    Analyzing --> BasicResponse: 偵測為簡短
+    Analyzing --> RichResponse: 偵測為豐富
+    Analyzing --> StuckResponse: 偵測為卡住
+    BasicResponse --> Listening: 深入探問
+    RichResponse --> Listening: 建立發展
+    StuckResponse --> Listening: 溫和引導
 ```
 
 ---
@@ -257,35 +303,59 @@ and I'll immediately document our current progress and start the next technique!
 
 **確認點設計：**
 
+```mermaid
+flowchart TD
+    COMPLETE["完成一個技術元素"] --> CHECK
+
+    subgraph CHECK["🔍 確認用戶狀態"]
+        Q1["• 還想探索這個元素嗎？"]
+        Q2["• 有想深入發展的想法嗎？"]
+        Q3["• 準備好往下走了嗎？"]
+    end
+
+    CHECK --> OPTIONS
+
+    subgraph OPTIONS["📋 四個選項"]
+        O1["[1] 繼續探索當前元素"]
+        O2["[2] 前往下一個元素"]
+        O3["[3] 換個角度看當前元素"]
+        O4["[4] 跳到最有趣的想法"]
+    end
+
+    OPTIONS --> BYPASS["+ 隨時可說 'next technique'"]
+
+    O1 --> CURRENT["返回當前元素"]
+    O2 --> NEXT["下一個元素"]
+    O3 --> ANGLE["新角度探索"]
+    O4 --> JUMP["跳轉最佳想法"]
+    BYPASS --> NEXT
+
+    style COMPLETE fill:#e3f2fd
+    style CHECK fill:#fff3e0
+    style OPTIONS fill:#e8f5e9
+    style BYPASS fill:#fce4ec
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                  Continuation Check Point                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  完成一個技術元素後                                          │
-│           │                                                  │
-│           ▼                                                  │
-│  ┌─────────────────────────────────────────────────────┐    │
-│  │              確認用戶狀態                            │    │
-│  │                                                      │    │
-│  │  • 還想探索這個元素嗎？                              │    │
-│  │  • 有想深入發展的想法嗎？                            │    │
-│  │  • 準備好往下走了嗎？                                │    │
-│  └─────────────────────────────────────────────────────┘    │
-│           │                                                  │
-│           ▼                                                  │
-│  ┌─────────────────────────────────────────────────────┐    │
-│  │              四個選項                                │    │
-│  │                                                      │    │
-│  │  [1] 繼續探索當前元素                                │    │
-│  │  [2] 前往下一個元素                                  │    │
-│  │  [3] 換個角度看當前元素                              │    │
-│  │  [4] 跳到最有趣的想法                                │    │
-│  └─────────────────────────────────────────────────────┘    │
-│           │                                                  │
-│           │  + 隨時可說 "next technique"                    │
-│           │                                                  │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：User-Controlled Pacing Pattern（用戶控制節奏模式）**
+
+這種設計確保用戶在整個創意過程中保持控制權：
+
+```mermaid
+graph TB
+    subgraph TRADITIONAL["傳統流程控制"]
+        T1[步驟 1] --> T2[步驟 2] --> T3[步驟 3]
+    end
+
+    subgraph USER_CONTROL["用戶控制節奏 ✓"]
+        U1[元素 1] --> CHECK1{繼續?}
+        CHECK1 -->|深入| U1
+        CHECK1 -->|前進| U2[元素 2]
+        CHECK1 -->|跳轉| U3[最佳想法]
+        U2 --> CHECK2{繼續?}
+    end
+
+    style TRADITIONAL fill:#ffcdd2
+    style USER_CONTROL fill:#c8e6c9
 ```
 
 ---
@@ -357,25 +427,56 @@ previous technique].
 
 **技術轉換架構：**
 
+```mermaid
+flowchart TD
+    A_DONE["✅ 技術 A 完成"] --> SUMMARY
+
+    subgraph SUMMARY["📝 摘要技術 A"]
+        S1["摘要發現"]
+        S2["強調關鍵洞見"]
+    end
+
+    SUMMARY --> TRANSITION
+
+    subgraph TRANSITION["🔄 轉換說明"]
+        T1["技術 B 會帶來什麼"]
+
+        subgraph CONNECT["與技術 A 的連結"]
+            C1["想法延續"]
+            C2["發展機會"]
+            C3["新視角"]
+        end
+
+        T1 --> CONNECT
+    end
+
+    TRANSITION --> B_START["🚀 開始技術 B"]
+
+    style A_DONE fill:#c8e6c9
+    style SUMMARY fill:#fff3e0
+    style TRANSITION fill:#e3f2fd
+    style B_START fill:#f3e5f5
 ```
-技術 A 完成
-    │
-    ├── 摘要技術 A 的發現
-    │
-    ├── 強調關鍵洞見
-    │
-    ▼
-轉換說明
-    │
-    ├── 技術 B 會帶來什麼
-    │
-    ├── 與技術 A 的連結
-    │       ├── 想法延續
-    │       ├── 發展機會
-    │       └── 新視角
-    │
-    ▼
-開始技術 B
+
+**技術概念說明：Graceful Transition Pattern（優雅轉換模式）**
+
+這種轉換設計確保創意連續性不會因技術切換而中斷：
+
+```mermaid
+sequenceDiagram
+    participant U as 用戶
+    participant AI as AI 教練
+    participant T1 as 技術 A
+    participant T2 as 技術 B
+
+    U->>AI: "next technique"
+    AI->>T1: 收集洞見
+    T1-->>AI: 關鍵發現
+    AI->>U: 摘要技術 A 成果
+    AI->>AI: 識別連結點
+    AI->>U: 說明技術 B 如何延續
+    AI->>T2: 開始引導
+    T2-->>U: 新的探索開始
 ```
 
 ---
@@ -540,3 +641,61 @@ partnership unfolded]_
 5. **深度優先**：鼓勵深入探索而非快速推進
 
 這個步驟體現了 AI 作為創意夥伴的最高形式——不是替用戶思考，而是幫助用戶思考得更好。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Step 3<br/>Technique Execution))
+    教練對話模式
+      來回互動
+      螺旋式發展
+      共同探索
+    適應性回應
+      偵測回應類型
+      動態調整策略
+      狀態機模式
+    用戶控制節奏
+      確認點設計
+      隨時可跳轉
+      深度優先
+    有機捕捉
+      即時標記
+      不打斷流動
+      階段總結
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Coaching Dialogue Pattern** | 整體引導 | 雙向互動而非單向問答 |
+| **Adaptive Response Pattern** | 回應處理 | 根據用戶狀態調整策略 |
+| **User-Controlled Pacing** | 節奏控制 | 用戶決定深度與進度 |
+| **Organic Capture Pattern** | 想法記錄 | 自然捕捉不打斷創意 |
+| **Graceful Transition Pattern** | 技術轉換 | 保持創意連續性 |
+
+### 教練互動循環視覺化
+
+```mermaid
+graph LR
+    subgraph CYCLE["🔄 教練互動循環"]
+        A["AI 提出<br/>探索方向"] --> B["用戶<br/>回應想法"]
+        B --> C["AI 偵測<br/>回應類型"]
+        C --> D["AI 動態<br/>調整策略"]
+        D --> E["AI 發展<br/>用戶想法"]
+        E --> F["用戶<br/>深化概念"]
+        F --> A
+    end
+
+    style A fill:#e3f2fd
+    style B fill:#fff9c4
+    style C fill:#ffecb3
+    style D fill:#c8e6c9
+    style E fill:#e1bee7
+    style F fill:#f8bbd9
+```
+
+**核心洞察**：Step 3 展示了 AI 作為創意教練的理想模式——透過適應性引導、用戶控制節奏、有機記錄三大機制，實現真正的人機共創體驗。
