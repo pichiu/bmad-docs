@@ -116,37 +116,55 @@ _Focus: [Description of what this theme covers]_
 
 **分群視覺化：**
 
+```mermaid
+flowchart TD
+    INPUT["所有產生的想法（未組織）<br/>★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★"] --> AI["🤖 AI 主題分析"]
+
+    AI --> T1 & T2 & T3
+
+    subgraph THEMES["主題分群"]
+        T1["Theme 1<br/>★★★<br/>Pattern: 洞見 A"]
+        T2["Theme 2<br/>☆☆☆<br/>Pattern: 洞見 B"]
+        T3["Theme 3<br/>★★<br/>Pattern: 洞見 C"]
+    end
+
+    AI --> SPECIAL
+
+    subgraph SPECIAL["✨ 特殊類別"]
+        S1["Cross-cutting<br/>跨主題想法"]
+        S2["Breakthrough<br/>突破性概念"]
+        S3["Implementation-Ready<br/>可立即執行"]
+    end
+
+    style INPUT fill:#fff9c4
+    style AI fill:#e3f2fd
+    style THEMES fill:#e8f5e9
+    style SPECIAL fill:#fce4ec
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                  Theme Clustering Process                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  所有產生的想法（未組織）                                    │
-│  ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★                    │
-│                          │                                   │
-│                          ▼                                   │
-│                    AI 主題分析                               │
-│                          │                                   │
-│         ┌────────────────┼────────────────┐                 │
-│         │                │                │                 │
-│         ▼                ▼                ▼                 │
-│  ┌────────────┐   ┌────────────┐   ┌────────────┐          │
-│  │  Theme 1   │   │  Theme 2   │   │  Theme 3   │          │
-│  │  ★★★      │   │  ☆☆☆      │   │  ★★        │          │
-│  │            │   │            │   │            │          │
-│  │ Pattern:   │   │ Pattern:   │   │ Pattern:   │          │
-│  │ [洞見]     │   │ [洞見]     │   │ [洞見]     │          │
-│  └────────────┘   └────────────┘   └────────────┘          │
-│                                                              │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │                特殊類別                               │   │
-│  │                                                       │   │
-│  │  Cross-cutting:     跨主題想法                        │   │
-│  │  Breakthrough:      突破性概念                        │   │
-│  │  Implementation-Ready: 可立即執行                     │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：Affinity Clustering（親和分群法）**
+
+這種主題識別方法類似於設計思維中的**親和圖法**：
+
+```mermaid
+graph LR
+    subgraph AFFINITY["親和圖法流程"]
+        A1[收集所有想法] --> A2[識別相似性]
+        A2 --> A3[分組歸類]
+        A3 --> A4[命名主題]
+        A4 --> A5[識別關聯]
+    end
+
+    subgraph AI_ENHANCED["AI 增強版"]
+        B1[語義分析] --> B2[自動分群]
+        B2 --> B3[模式識別]
+        B3 --> B4[洞見提取]
+    end
+
+    AFFINITY -->|AI 加速| AI_ENHANCED
+
+    style AFFINITY fill:#fff3e0
+    style AI_ENHANCED fill:#e3f2fd
 ```
 
 ---
@@ -185,37 +203,55 @@ and I'll help you develop action plans.**"
 
 **三類優先想法：**
 
+```mermaid
+flowchart TB
+    subgraph PRIORITY["📊 Priority Categories 優先類別"]
+        direction TB
+
+        subgraph HIGH["🎯 Top 3 High-Impact Ideas"]
+            H1["高影響力想法"]
+            H2["可能帶來最大成果的概念"]
+            H3["→ 適合作為主要發展方向"]
+        end
+
+        subgraph QUICK["⚡ Easiest Quick Wins"]
+            Q1["最容易的快贏"]
+            Q2["可以最快實施的想法"]
+            Q3["→ 適合立即行動、建立動力"]
+        end
+
+        subgraph INNOV["💡 Most Innovative Approaches"]
+            I1["最創新的方法"]
+            I2["真正的突破性概念"]
+            I3["→ 適合長期投資、差異化"]
+        end
+    end
+
+    style HIGH fill:#c8e6c9
+    style QUICK fill:#fff9c4
+    style INNOV fill:#e1bee7
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                  Priority Categories                         │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │           Top 3 High-Impact Ideas                    │   │
-│  │           高影響力想法                                │   │
-│  │                                                       │   │
-│  │           可能帶來最大成果的概念                      │   │
-│  │           → 適合作為主要發展方向                      │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │           Easiest Quick Wins                         │   │
-│  │           最容易的快贏                                │   │
-│  │                                                       │   │
-│  │           可以最快實施的想法                          │   │
-│  │           → 適合立即行動、建立動力                    │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │           Most Innovative Approaches                 │   │
-│  │           最創新的方法                                │   │
-│  │                                                       │   │
-│  │           真正的突破性概念                            │   │
-│  │           → 適合長期投資、差異化                      │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：Effort-Impact Matrix（努力-影響矩陣）**
+
+三類優先想法對應到經典的優先排序框架：
+
+```mermaid
+quadrantChart
+    title Effort-Impact Matrix 努力影響矩陣
+    x-axis Low Effort --> High Effort
+    y-axis Low Impact --> High Impact
+    quadrant-1 High-Impact (長期投資)
+    quadrant-2 Quick Wins (立即執行)
+    quadrant-3 Fill-ins (有空再做)
+    quadrant-4 Time Wasters (避免)
 ```
+
+| 類別 | 矩陣位置 | 策略 |
+|------|----------|------|
+| High-Impact | 右上象限 | 主要發展方向 |
+| Quick Wins | 左上象限 | 立即行動 |
+| Innovative | 右上/右下 | 長期投資 |
 
 ---
 
@@ -300,35 +336,54 @@ and I'll help you develop action plans.**"
 
 **完整文件結構：**
 
+```mermaid
+flowchart TD
+    subgraph DOC["📄 Complete Session Document"]
+        direction TB
+
+        S1["1️⃣ Session Overview<br/>(from Step 1)<br/>脈絡、目標、使用方法"]
+
+        S2["2️⃣ Technique Selection<br/>(from Step 2)<br/>選擇的路徑與技術"]
+
+        S3["3️⃣ Technique Execution Results<br/>(from Step 3)<br/>各技術執行產出 + 創意引導敘事"]
+
+        subgraph S4["4️⃣ Idea Organization and Prioritization"]
+            S4a["主題組織<br/>Theme 1, 2, 3..."]
+            S4b["優先排序結果<br/>Top Priority | Quick Wins | Breakthrough"]
+            S4c["行動計畫<br/>步驟、資源、時間、指標"]
+        end
+
+        S5["5️⃣ Session Summary<br/>關鍵成就、突破、洞見"]
+
+        S1 --> S2 --> S3 --> S4 --> S5
+    end
+
+    style S1 fill:#e3f2fd
+    style S2 fill:#fff3e0
+    style S3 fill:#e8f5e9
+    style S4 fill:#fce4ec
+    style S5 fill:#f3e5f5
 ```
-┌─────────────────────────────────────────────────────────────┐
-│             Complete Session Document Structure              │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  1. Session Overview (from Step 1)                          │
-│     └── 脈絡、目標、使用方法                                │
-│                                                              │
-│  2. Technique Selection (from Step 2)                       │
-│     └── 選擇的路徑與技術                                    │
-│                                                              │
-│  3. Technique Execution Results (from Step 3)               │
-│     └── 各技術執行產出                                      │
-│     └── 創意引導敘事                                        │
-│                                                              │
-│  4. Idea Organization and Prioritization (Step 4)           │
-│     ├── 主題組織                                            │
-│     │     └── Theme 1, 2, 3...                              │
-│     ├── 優先排序結果                                        │
-│     │     ├── Top Priority Ideas                            │
-│     │     ├── Quick Win Opportunities                       │
-│     │     └── Breakthrough Concepts                         │
-│     └── 行動計畫                                            │
-│           └── 具體步驟、資源、時間、指標                    │
-│                                                              │
-│  5. Session Summary and Insights                            │
-│     └── 關鍵成就、突破、洞見                                │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：文件即交付物（Documentation as Deliverable）**
+
+這種設計將會議文件視為**主要交付物**，而非附屬產出：
+
+```mermaid
+graph TB
+    subgraph TRADITIONAL["傳統會議"]
+        T1[會議進行] --> T2[口頭結論]
+        T2 --> T3[會議紀錄<br/>可選]
+    end
+
+    subgraph BMAD["BMAD 方法"]
+        B1[會議進行] --> B2[即時記錄]
+        B2 --> B3[結構化文件<br/>必要交付物]
+        B3 --> B4[行動追蹤]
+    end
+
+    style TRADITIONAL fill:#ffcdd2
+    style BMAD fill:#c8e6c9
 ```
 
 ---
@@ -505,3 +560,62 @@ and I'll help you develop action plans.**"
 4. **完整文件產出**：保存整個會議的成果
 
 這個步驟確保腦力激盪不只是「產生想法」，而是產生「可行動的成果」，體現了 BMAD 框架對實用性與效能的重視。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Step 4<br/>Idea Organization))
+    主題分群
+      親和圖法
+      語義分析
+      模式識別
+    優先排序
+      Impact 影響力
+      Feasibility 可行性
+      Innovation 創新度
+      Alignment 一致性
+    行動計畫
+      具體步驟
+      資源需求
+      時間規劃
+      成功指標
+    文件產出
+      結構化記錄
+      可分享格式
+      行動追蹤
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Synthesis Pattern** | 主題識別 | 將混沌整合為有意義整體 |
+| **Convergent Facilitation** | 優先排序 | 從廣泛到聚焦的引導 |
+| **Actionable Output Pattern** | 行動計畫 | 確保每個想法可執行 |
+| **Documentation as Deliverable** | 文件產出 | 文件是主要交付物 |
+| **Effort-Impact Matrix** | 優先分類 | 經典優先排序框架 |
+
+### 完整工作流程視覺化
+
+```mermaid
+graph LR
+    subgraph FLOW["Step 4 完整流程"]
+        A["📊 回顧產出"] --> B["🏷️ 主題分群"]
+        B --> C["⚖️ 優先排序"]
+        C --> D["📋 行動計畫"]
+        D --> E["📄 文件產出"]
+        E --> F["✅ 完成"]
+    end
+
+    style A fill:#e3f2fd
+    style B fill:#fff3e0
+    style C fill:#c8e6c9
+    style D fill:#fce4ec
+    style E fill:#e1bee7
+    style F fill:#f3e5f5
+```
+
+**核心洞察**：Step 4 將發散的創意能量轉化為收斂的行動力量，確保每次腦力激盪都能產生可追蹤、可執行的具體成果。
