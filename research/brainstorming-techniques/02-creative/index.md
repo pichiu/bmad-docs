@@ -122,4 +122,19 @@ graph LR
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **What If Scenarios** | Scenario Planning, Counterfactual | 打破現實限制的想像 |
+| **Analogical Thinking** | Cross-Domain Transfer, Pattern Matching | 借用成功模式 |
+| **First Principles** | Decomposition, Aristotelian Reasoning | 從根本重建 |
+| **Reversal Inversion** | TRIZ Principle #13, Inverse Logic | 揭示隱藏假設 |
+| **Forced Relationships** | Morphological Analysis, Random Pairing | 強制新連結 |
+| **Concept Blending** | Conceptual Integration, Fauconnier-Turner | 創造新類別 |
+
+**核心洞察**：創意類技術的共同目標是「逃離現有思維的監獄」。我們的大腦是效率機器，傾向於重複走過的路徑——這在日常生活中是優勢，但在創新時是障礙。First Principles 從根本解構、Analogical Thinking 從他處借鏡、What If 從假設出發、Reversal 從反面審視——這些都是打破慣性思維的不同入口。最好的創意者不是等待靈感降臨，而是系統性地使用這些技術，強迫大腦離開舒適區。
+
+---
+
 *返回 [技術總覽](../index.md)*

@@ -300,4 +300,17 @@ flowchart LR
 
 ---
 
+## 設計模式對照
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Conceptual Integration** | Fauconnier-Turner 理論 | 系統化的概念融合框架 |
+| **Emergent Properties** | 融合結果 | 新特性從融合中湧現 |
+| **Input Space Mapping** | 結構分析 | 識別兩個概念的結構元素 |
+| **Generic Space** | 共享結構 | 找出兩個概念的共同框架 |
+
+**核心洞察**：Concept Blending 不是簡單的「A+B」，而是創造一個新的「C」——這個 C 擁有 A 和 B 都沒有的「湧現特性」（Emergent Properties）。當你把「咖啡店」和「辦公室」融合，你不只是得到「有咖啡的辦公室」，你得到了一種新的工作文化、新的社交模式、新的空間概念。這個新概念有自己的邏輯和價值。
+
+---
+
 *返回 [Creative 類別](./index.md) | [技術總覽](../index.md)*
