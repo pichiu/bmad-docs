@@ -252,45 +252,64 @@ YAML frontmatter 作為結構化狀態存儲：
 
 ## 使用流程
 
+```mermaid
+flowchart TD
+    subgraph FLOW["📄 Template Usage Flow"]
+        direction TB
+
+        subgraph S1["Step 1: Session Setup"]
+            S1a["1. 複製 template.md 到輸出目錄"]
+            S1b["2. 替換變數 &#123;&#123;user_name&#125;&#125;, &#123;&#123;date&#125;&#125;"]
+            S1c["3. 更新 frontmatter: stepsCompleted: [1]"]
+            S1d["4. 追加 Session Overview 區塊"]
+        end
+
+        subgraph S2["Step 2: Technique Selection"]
+            S2a["1. 更新 frontmatter: stepsCompleted: [1, 2]"]
+            S2b["2. 更新 selected_approach, techniques"]
+            S2c["3. 追加 Technique Selection 區塊"]
+        end
+
+        subgraph S3["Step 3: Technique Execution"]
+            S3a["1. 更新 frontmatter: stepsCompleted: [1, 2, 3]"]
+            S3b["2. 更新 frontmatter: ideas_generated"]
+            S3c["3. 追加 Technique Execution Results 區塊"]
+        end
+
+        subgraph S4["Step 4: Idea Organization"]
+            S4a["1. 更新 stepsCompleted: [1, 2, 3, 4]"]
+            S4b["2. 追加 Idea Organization 區塊"]
+            S4c["3. 追加 Session Summary 區塊"]
+            S4d["4. 完成文件 ✅"]
+        end
+
+        S1 --> S2 --> S3 --> S4
+    end
+
+    style S1 fill:#e3f2fd
+    style S2 fill:#fff3e0
+    style S3 fill:#c8e6c9
+    style S4 fill:#fce4ec
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Template Usage Flow                       │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  Step 1: Session Setup                                       │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ 1. 複製 template.md 到輸出目錄                        │   │
-│  │ 2. 替換變數 {{user_name}}, {{date}}                   │   │
-│  │ 3. 更新 frontmatter: stepsCompleted: [1]             │   │
-│  │ 4. 追加 Session Overview 區塊                         │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                          │                                   │
-│                          ▼                                   │
-│  Step 2: Technique Selection                                 │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ 1. 更新 frontmatter: stepsCompleted: [1, 2]          │   │
-│  │ 2. 更新 frontmatter: selected_approach, techniques   │   │
-│  │ 3. 追加 Technique Selection 區塊                      │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                          │                                   │
-│                          ▼                                   │
-│  Step 3: Technique Execution                                 │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ 1. 更新 frontmatter: stepsCompleted: [1, 2, 3]       │   │
-│  │ 2. 更新 frontmatter: ideas_generated                  │   │
-│  │ 3. 追加 Technique Execution Results 區塊              │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                          │                                   │
-│                          ▼                                   │
-│  Step 4: Idea Organization                                   │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ 1. 更新 frontmatter: stepsCompleted: [1, 2, 3, 4]    │   │
-│  │ 2. 追加 Idea Organization 區塊                        │   │
-│  │ 3. 追加 Session Summary 區塊                          │   │
-│  │ 4. 完成文件                                           │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：Append-Only Document Pattern（僅追加文件模式）**
+
+這種文件演進模式確保完整的過程記錄：
+
+```mermaid
+graph LR
+    subgraph EVOLUTION["文件演進過程"]
+        T["template.md<br/>空白模板"] --> D1["+ Step 1<br/>Session Setup"]
+        D1 --> D2["+ Step 2<br/>Technique Selection"]
+        D2 --> D3["+ Step 3<br/>Execution Results"]
+        D3 --> D4["+ Step 4<br/>Organization<br/>完整文件"]
+    end
+
+    style T fill:#f5f5f5
+    style D1 fill:#e3f2fd
+    style D2 fill:#fff3e0
+    style D3 fill:#c8e6c9
+    style D4 fill:#e1bee7
 ```
 
 ---
@@ -339,3 +358,60 @@ session_id: 'uuid-here'
 4. **支援續行**：狀態持久化支援中斷恢復
 
 這個模板體現了 BMAD 框架對「產出導向」的設計理念——腦力激盪不只是對話，而是產生可保存、可分享、可執行的成果。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((template.md<br/>輸出模板))
+    YAML Frontmatter
+      stepsCompleted 狀態追蹤
+      session_topic 會議主題
+      techniques_used 技術記錄
+      ideas_generated 想法收集
+    文件區塊
+      Session Overview
+      Technique Selection
+      Execution Results
+      Idea Organization
+      Session Summary
+    設計模式
+      Append-Only 僅追加
+      Progressive Enrichment
+      Human-Readable Output
+    變數替換
+      user_name
+      date
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Append-Only Pattern** | 文件更新策略 | 保留完整過程記錄 |
+| **Frontmatter as State** | YAML 區塊 | 結構化狀態存儲 |
+| **Progressive Enrichment** | 內容累積 | 隨會議進行豐富內容 |
+| **Human-Readable Output** | 最終格式 | 可直接閱讀分享 |
+| **Template Variable** | 變數替換 | 動態個人化內容 |
+
+### Frontmatter 狀態演進視覺化
+
+```mermaid
+stateDiagram-v2
+    [*] --> Empty: 初始化
+    Empty --> Step1: stepsCompleted: [1]
+    Step1 --> Step2: stepsCompleted: [1,2]
+    Step2 --> Step3: stepsCompleted: [1,2,3]
+    Step3 --> Complete: stepsCompleted: [1,2,3,4]
+    Complete --> [*]: 會議結束
+
+    note right of Empty: 空白模板
+    note right of Step1: + session_topic, goals
+    note right of Step2: + selected_approach, techniques
+    note right of Step3: + ideas_generated
+    note right of Complete: 完整文件
+```
+
+**核心洞察**：template.md 不只是空白模板，而是一個精心設計的**狀態容器**與**輸出框架**，透過 YAML frontmatter 追蹤進度、透過 Markdown 區塊累積內容，最終產出可讀可分享的完整會議文件。
