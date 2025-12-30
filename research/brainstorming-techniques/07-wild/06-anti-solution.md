@@ -530,6 +530,19 @@ flowchart LR
 - **負面視角的認知優勢**：人類更善於識別危險和錯誤
 - **Via Negativa**：透過消除錯誤來改善，而非增加複雜性
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Inversion (Munger)** | 反向思考哲學 | 「告訴我會死在哪裡，我就不去那裡」 |
+| **Reverse Brainstorming** | 反向腦力激盪 | 思考如何造成問題而非解決問題 |
+| **Premortem Analysis** | Gary Klein | 假設專案已慘敗，寫驗屍報告 |
+| **Via Negativa** | 消除法哲學 | 透過排除錯誤而非增加複雜來改善 |
+| **Red Team Thinking** | 軍事策略 | 假扮敵方來發現自己的弱點 |
+| **Failure Mode Analysis** | 失效模式分析 | 系統化識別可能的失敗方式 |
+
+**核心洞察**：Anti-Solution的深層智慧來自Charlie Munger的「反向思考」哲學——人類更善於識別錯誤而非創造完美。從空白畫布創造傑作很難，但指出一幅畫哪裡不對很容易。這種不對稱是Anti-Solution的槓桿：當你問「如何確保失敗」，想法源源不絕；當你問「如何確保成功」，卻常常卡住。更深的洞見是：避免愚蠢比追求聰明更可靠。Bezos要團隊思考「如何讓客戶最不滿」，然後做相反的事，這就是亞馬遜客戶至上文化的來源。「不要做」清單往往比「要做」清單更有價值。
+
 ## 參考資源
 
 - [Inversion: The Power of Avoiding Stupidity](https://fs.blog/inversion/)

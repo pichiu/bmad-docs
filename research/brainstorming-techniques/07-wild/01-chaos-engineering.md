@@ -454,6 +454,19 @@ flowchart LR
 - **Google SRE 實踐**：預期失敗是設計的一部分
 - **心理學研究**：預演災難（premortem）提高決策品質
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Chaos Monkey (Netflix)** | 主動破壞生產系統 | 混沌工程實踐的起源與經典案例 |
+| **Antifragility** | Nassim Taleb理論 | 從混亂中獲益而非僅僅抵抗 |
+| **Site Reliability Engineering** | Google SRE實踐 | 預期失敗是設計的一部分 |
+| **FMEA** | 失效模式與效應分析 | 系統化識別失敗點的工程方法 |
+| **Premortem Analysis** | Gary Klein | 假設已失敗，回推失敗原因 |
+| **Stress Testing** | 金融/工程領域 | 極端條件下測試系統韌性 |
+
+**核心洞察**：Chaos Engineering的革命性在於將「失敗」從敵人變成老師。傳統思維害怕失敗、迴避失敗，混沌工程主動邀請失敗來揭示真相。Netflix的洞見是：如果你不主動發現弱點，市場會替你發現，而且在最糟的時機。更深層的哲學來自Taleb的「反脆弱」：最好的系統不只是抵禦混亂，而是從混亂中成長。這就是為什麼要「殺死你的寵物」——主動破壞你最珍惜的假設，因為真正的韌性只能在火焰中鍛造。
+
 ## 參考資源
 
 - [Principles of Chaos Engineering](https://principlesofchaos.org/)

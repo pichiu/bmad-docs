@@ -475,6 +475,19 @@ flowchart LR
 - **心理學安全感研究**：「安全的叛逆」促進創新
 - **歷史研究**：真實海盜組織的民主創新
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Pirate Culture (Apple)** | Jobs的Macintosh團隊 | 「當海盜比加入海軍更好」的創新精神 |
+| **Asymmetric Strategy** | 軍事策略思維 | 小蝦米用非對稱戰術對抗大鯨魚 |
+| **Disruptive Innovation** | 挑戰既有規則 | 從邊緣顛覆中心的破壞性創新 |
+| **First Principles Thinking** | 從根本質疑規則 | 不接受「一直都這樣」的答案 |
+| **Permission vs Forgiveness** | 創業文化 | 寧願事後道歉，不要事先批准 |
+| **Democratic Organization** | 歷史海盜的民主 | 真實海盜組織比同代海軍更民主 |
+
+**核心洞察**：Pirate Code Brainstorm的本質是「建設性叛逆」——真正的海盜不是無政府主義者，他們有自己的守則，只是不接受別人強加的規則。Jobs說當海盜，不是因為海盜沒有紀律，而是因為海盜選擇自己的紀律。這種思維在創新中極其強大：每一條「不能做」的規則背後都有一個假設，而每一個過時的假設都是創新的機會。Netflix問「為什麼要有逾期費」，Uber問「為什麼需要計程車執照」——這些海盜式的問題顛覆了整個產業。關鍵是：挑戰規則不是為了混亂，而是為了創造更好的秩序。
+
 ## 參考資源
 
 - [Pirates of the Caribbean: Pirate Code](https://pirates.fandom.com/wiki/Code_of_the_Pirate_Brethren)

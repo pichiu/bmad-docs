@@ -480,6 +480,19 @@ flowchart LR
 - **精實創業 MVP 概念**：最小可行產品思維
 - **災難復原規劃**：業務連續性的重要性
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Black Swan Theory** | Nassim Taleb | 為極端但影響巨大的事件做準備 |
+| **CDC Preparedness Model** | 疾病控制中心 | 用極端情境教育應急準備 |
+| **Lean Startup MVP** | 最小可行產品 | 找出核心價值的極簡化思維 |
+| **Business Continuity Planning** | 業務連續性 | 災難後如何維持核心運作 |
+| **Stress Testing** | 壓力測試 | 極端條件下系統的表現 |
+| **Essential vs Nice-to-Have** | 優先順序矩陣 | 區分生存必需與錦上添花 |
+
+**核心洞察**：Zombie Apocalypse Planning的天才在於用「荒謬」來揭示「本質」。當我們假設網路斷了、電力消失、團隊分散，那些「nice to have」的裝飾就會剝落，只剩下「must have」的核心。CDC真的發布殭屍末日指南不是開玩笑——他們發現這比真實災難更能激發準備意識。在商業上，這種極端稀缺假設強迫我們回答最根本的問題：「沒有這個，我們還能存在嗎？」COVID-19證明了末日規劃不是玩笑：那些已經數位化、已經建立韌性的組織存活下來，其他的則不得不在危機中痛苦轉型。
+
 ## 參考資源
 
 - [CDC Zombie Preparedness](https://www.cdc.gov/cpr/zombie/index.htm)

@@ -477,6 +477,19 @@ flowchart LR
 - **精實創業**：先做出來，快速驗證，迭代改進
 - **20% 時間**：Google、3M 的創新實踐
 
+## 設計模式與方法論對照
+
+| 相關模式/方法論 | 連結點 | 應用價值 |
+|----------------|--------|----------|
+| **Disruptive Innovation** | Christensen破壞性創新 | 最好的創新從邊緣開始，在巨頭不注意的地方 |
+| **Skunkworks Model** | 洛克希德臭鼬工廠 | 小團隊在官僚體系外自主創新 |
+| **Lean Startup MVP** | Eric Ries | 先做出來，快速驗證，迭代改進 |
+| **20% Time Innovation** | Google/3M實踐 | 正式時間外的游擊創新 |
+| **Intrapreneurship** | 內部創業精神 | 在組織內部保持創業心態 |
+| **Shadow IT** | 影子IT現象 | 員工繞過正式流程解決問題的智慧 |
+
+**核心洞察**：Guerrilla Gardening的深層智慧是「縫隙經濟學」——官僚組織的最大盲點不是他們看不見的地方，而是他們「選擇」不看的地方。當每個人都在競爭明顯的機會時，縫隙中的機會無人爭奪。Gmail、便利貼、Facebook的讚按鈕——這些改變世界的創新都不在官方路線圖上。「先做再說」不是魯莽，而是對創新動態的深刻理解：一個活生生的原型比一百頁PPT更有說服力。真正的游擊園丁知道：獲得追認比獲得批准容易得多。
+
 ## 參考資源
 
 - [Guerrilla Gardening: A Manualfesto](http://www.guerrillagardening.org/)
