@@ -74,25 +74,52 @@ Put to other uses, Eliminate, Reverse"
 
 ### 類別分布圖
 
+```mermaid
+pie showData
+    title 技術類別分布（共 62 種）
+    "creative (創意)" : 11
+    "deep (深度)" : 8
+    "wild (狂野)" : 8
+    "structured (結構)" : 7
+    "introspective (內省)" : 6
+    "theatrical (戲劇)" : 6
+    "collaborative (協作)" : 5
+    "cultural (文化)" : 4
+    "quantum (量子)" : 3
+    "biomimetic (仿生)" : 3
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                   Category Distribution                      │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  creative        ████████████████████████████████████ 11    │
-│  deep            ████████████████████████████ 8             │
-│  wild            ████████████████████████████ 8             │
-│  structured      ████████████████████████ 7                 │
-│  introspective   ████████████████████ 6                     │
-│  theatrical      ████████████████████ 6                     │
-│  collaborative   ████████████████ 5                         │
-│  cultural        ████████████ 4                             │
-│  quantum         ████████ 3                                 │
-│  biomimetic      ████████ 3                                 │
-│                                                              │
-│  Total: 62 techniques                                       │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**類別數量長條圖：**
+
+```mermaid
+xychart-beta
+    title "技術類別分布"
+    x-axis [creative, deep, wild, structured, intro, theatrical, collab, cultural, quantum, bio]
+    y-axis "技術數量" 0 --> 12
+    bar [11, 8, 8, 7, 6, 6, 5, 4, 3, 3]
+```
+
+**技術概念說明：Knowledge Base 設計模式**
+
+這種分類架構體現了**知識庫設計**的最佳實踐：
+
+```mermaid
+graph TB
+    subgraph KB["📚 Knowledge Base 架構"]
+        direction TB
+        ROOT["brain-methods.csv"] --> CAT["10 個類別"]
+        CAT --> T1["creative (11)"]
+        CAT --> T2["deep (8)"]
+        CAT --> T3["wild (8)"]
+        CAT --> T4["..."]
+        T1 --> TECH["62 個技術"]
+        T2 --> TECH
+        T3 --> TECH
+    end
+
+    style ROOT fill:#e3f2fd
+    style CAT fill:#fff3e0
+    style TECH fill:#c8e6c9
 ```
 
 ---
@@ -266,35 +293,56 @@ Put to other uses, Eliminate, Reverse"
 
 ### 能量等級分布
 
+```mermaid
+flowchart TB
+    subgraph ENERGY["⚡ Energy Level Distribution"]
+        direction TB
+
+        subgraph HIGH["🔥 High Energy 高能量"]
+            H1["collaborative: Yes And, Ideation Relay"]
+            H2["creative: What If, First Principles"]
+            H3["wild: Chaos Engineering, Pirate Code, Zombie"]
+            H4["theatrical: Time Travel, Emotion Orchestra"]
+        end
+
+        subgraph MEDIUM["⚡ Medium Energy 中等能量"]
+            M1["structured: SCAMPER, Six Thinking Hats, Mind Mapping"]
+            M2["deep: Five Whys, Morphological Analysis"]
+            M3["creative: Analogical, Metaphor Mapping"]
+            M4["biomimetic: Nature's Solutions, Ecosystem Thinking"]
+        end
+
+        subgraph LOW["💧 Low Energy 低能量"]
+            L1["introspective: Inner Child, Values Archaeology"]
+            L2["collaborative: Brain Writing Round Robin"]
+            L3["deep: Question Storming, Emergent Thinking"]
+        end
+    end
+
+    style HIGH fill:#ffcdd2
+    style MEDIUM fill:#fff9c4
+    style LOW fill:#c8e6c9
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    Energy Level Distribution                 │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  High Energy (高能量)                                        │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ collaborative: Yes And, Ideation Relay               │   │
-│  │ creative: What If, First Principles                  │   │
-│  │ wild: Chaos Engineering, Pirate Code, Zombie        │   │
-│  │ theatrical: Time Travel, Emotion Orchestra          │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-│  Medium Energy (中等能量)                                    │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ structured: SCAMPER, Six Thinking Hats, Mind Mapping│   │
-│  │ deep: Five Whys, Morphological Analysis             │   │
-│  │ creative: Analogical, Metaphor Mapping              │   │
-│  │ biomimetic: Nature's Solutions, Ecosystem Thinking  │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-│  Low Energy (低能量)                                         │
-│  ┌──────────────────────────────────────────────────────┐   │
-│  │ introspective: Inner Child, Values Archaeology      │   │
-│  │ collaborative: Brain Writing Round Robin            │   │
-│  │ deep: Question Storming, Emergent Thinking         │   │
-│  └──────────────────────────────────────────────────────┘   │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：能量等級與技術選擇**
+
+能量等級是技術選擇的重要考量因素：
+
+```mermaid
+graph LR
+    subgraph CONTEXT["使用情境"]
+        C1["團隊狀態"] --> DECIDE
+        C2["時間點"] --> DECIDE
+        C3["目標類型"] --> DECIDE
+    end
+
+    DECIDE{能量等級<br/>決策} -->|活力充沛| HIGH["High Energy<br/>野性/戲劇技術"]
+    DECIDE -->|穩定工作| MEDIUM["Medium Energy<br/>結構/分析技術"]
+    DECIDE -->|需要沉澱| LOW["Low Energy<br/>內省/書寫技術"]
+
+    style HIGH fill:#ffcdd2
+    style MEDIUM fill:#fff9c4
+    style LOW fill:#c8e6c9
 ```
 
 ### 思維模式對應
@@ -387,3 +435,70 @@ category,technique_name,description,energy_level,typical_duration,facilitation_p
 4. **按需載入**：優化效能，避免初始化負擔
 
 這個資料庫體現了 BMAD 框架對創意方法論的深度整合，提供了從保守到激進、從個人到團隊的完整創意工具箱。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((brain-methods.csv<br/>技術資料庫))
+    資料結構
+      CSV 格式
+      按需載入
+      易於擴展
+    10 類別
+      creative 創意
+      deep 深度
+      wild 狂野
+      structured 結構
+      introspective 內省
+      theatrical 戲劇
+      collaborative 協作
+      cultural 文化
+      quantum 量子
+      biomimetic 仿生
+    62 技術
+      多元覆蓋
+      能量等級
+      思維模式
+    整合對照
+      IDEO Design
+      TRIZ
+      Design Thinking
+```
+
+### 類別光譜視覺化
+
+```mermaid
+graph LR
+    subgraph SPECTRUM["技術類別光譜"]
+        direction LR
+        S["structured<br/>結構化"] --> D["deep<br/>深度分析"]
+        D --> C["creative<br/>創意思維"]
+        C --> T["theatrical<br/>戲劇表演"]
+        T --> W["wild<br/>狂野突破"]
+    end
+
+    subgraph ENERGY["能量需求"]
+        LOW["低能量<br/>內省/書寫"] --> MED["中能量<br/>分析/結構"]
+        MED --> HIGH["高能量<br/>戲劇/狂野"]
+    end
+
+    style S fill:#e3f2fd
+    style D fill:#fff3e0
+    style C fill:#c8e6c9
+    style T fill:#e1bee7
+    style W fill:#ffcdd2
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Knowledge Base Pattern** | 整體資料結構 | 結構化知識儲存 |
+| **Lazy Loading** | CSV 載入策略 | 效能優化 |
+| **Category Taxonomy** | 類別分類 | 易於導航與選擇 |
+| **Multi-Dimensional Attributes** | 技術屬性 | 多角度匹配選擇 |
+
+**核心洞察**：brain-methods.csv 不只是技術清單，而是精心設計的創意方法知識庫，透過類別分類、能量等級、思維模式等多維度屬性，支援 AI 進行智慧化的技術推薦與匹配。
