@@ -105,4 +105,19 @@ graph TD
 
 ---
 
+## 設計模式與方法論對照
+
+| 技術 | 相關模式/方法論 | 核心價值 |
+|------|-----------------|----------|
+| **Five Whys** | Root Cause Analysis, Toyota Production | 追問直到觸及根因 |
+| **Morphological Analysis** | Zwicky Box, Systematic Innovation | 窮盡所有組合可能 |
+| **Provocation Technique** | PO (Provocative Operation), de Bono | 用荒謬啟發思考 |
+| **Assumption Reversal** | Paradigm Shift, Frame Breaking | 顛覆核心假設 |
+| **Question Storming** | Inquiry-Based Learning | 對的問題比答案重要 |
+| **Constraint Mapping** | Theory of Constraints, TOC | 識別和突破瓶頸 |
+
+**核心洞察**：深度類技術的共同特徵是「不滿足於第一個答案」。當你問「為什麼顧客流失」，第一個答案可能是「價格太高」，但這只是表面。Five Whys 追問到第五層，你可能發現真正的原因是「我們不理解顧客的價值定義」。這種深度探索需要耐心和紀律，但它避免了解決錯誤問題的代價。
+
+---
+
 *返回 [技術總覽](../index.md)*

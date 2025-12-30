@@ -223,4 +223,17 @@ flowchart LR
 
 ---
 
+## 設計模式對照
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Theory of Constraints (TOC)** | Goldratt 理論 | 找到並突破瓶頸 |
+| **Real vs Perceived Constraints** | 分類 | 區分真假限制 |
+| **Constraint as Opportunity** | 心態轉換 | 限制可以變優勢 |
+| **Design Space Mapping** | 視覺化 | 看清可行空間邊界 |
+
+**核心洞察**：大多數我們認為是「限制」的東西，其實是「假設」。Constraint Mapping 強迫我們問：這是物理定律級別的限制（不可改變），還是政策級別的限制（可以談判），還是習慣級別的限制（只是我們一直這樣做）？很多創新來自於發現某個「不可能」其實只是「沒人試過」。
+
+---
+
 *返回 [Deep 類別](./index.md) | [技術總覽](../index.md)*

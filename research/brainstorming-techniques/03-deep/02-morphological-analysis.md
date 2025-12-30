@@ -242,4 +242,17 @@ flowchart LR
 
 ---
 
+## 設計模式對照
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Zwicky Box** | Fritz Zwicky 方法 | 系統化窮盡所有組合 |
+| **Systematic Innovation** | TRIZ 關聯 | 有結構的創新探索 |
+| **Combinatorial Explosion** | 組合數學 | 理解組合空間的規模 |
+| **Cross-Consistency Matrix** | 過濾方法 | 排除不相容的組合 |
+
+**核心洞察**：Morphological Analysis 的威力在於它讓「窮盡所有可能」成為可能。當你有 5 個維度、每個維度 4 個選項時，你有 1024 種組合——這超出了直覺能處理的範圍。Zwicky Box 強迫你系統化地考慮每一種組合，而不是只考慮「明顯」的那幾種。很多創新藏在我們直覺認為「不可能」的組合中。
+
+---
+
 *返回 [Deep 類別](./index.md) | [技術總覽](../index.md)*
