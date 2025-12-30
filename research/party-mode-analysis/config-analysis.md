@@ -81,25 +81,50 @@ output_folder: "{project-root}/_bmad-output"
 
 ### 變數替換流程
 
+```mermaid
+flowchart TD
+    subgraph CONFIG["📄 配置來源"]
+        YAML["config.yaml<br/>user_name: Pi"]
+    end
+
+    subgraph SESSION["💾 Session 變數"]
+        VARS["變數儲存為<br/>session variables"]
+    end
+
+    subgraph TEMPLATE["📝 模板替換"]
+        BEFORE["Welcome &#123;&#123;user_name&#125;&#125;"]
+        AFTER["Welcome Pi"]
+        BEFORE -->|替換| AFTER
+    end
+
+    YAML -->|讀取| VARS
+    VARS -->|替換| BEFORE
+
+    style CONFIG fill:#e3f2fd
+    style SESSION fill:#fff3e0
+    style TEMPLATE fill:#c8e6c9
 ```
-┌─────────────────────────┐
-│     config.yaml         │
-│  user_name: Pi          │
-└───────────┬─────────────┘
-            │ 讀取
-            ▼
-┌─────────────────────────┐
-│   變數儲存為 session    │
-│   variables             │
-└───────────┬─────────────┘
-            │ 替換
-            ▼
-┌─────────────────────────┐
-│   "Welcome {{user_name}}"│
-│         ↓               │
-│   "Welcome Pi"          │
-└─────────────────────────┘
+
+**技術概念說明：Template Variable Substitution（模板變數替換）**
+
+這是一種常見的動態內容生成模式，將佔位符替換為實際值：
+
+```mermaid
+graph LR
+    subgraph PATTERN["Template Substitution Pattern"]
+        T["模板字串"] --> P["解析佔位符"]
+        P --> L["查詢變數值"]
+        L --> R["替換並輸出"]
+    end
+
+    style PATTERN fill:#f5f5f5
 ```
+
+| 階段 | 輸入 | 輸出 |
+|------|------|------|
+| 解析 | `Welcome {{user_name}}` | 變數名 `user_name` |
+| 查詢 | `user_name` | 值 `Pi` |
+| 替換 | 模板 + 值 | `Welcome Pi` |
 
 ### Party Mode 使用的變數
 
@@ -131,16 +156,37 @@ Load config from `{project-root}/_bmad/core/config.yaml` and resolve:
 
 ### 載入順序
 
+```mermaid
+flowchart LR
+    subgraph LOADING["⚙️ 配置載入流程"]
+        direction LR
+        A["1️⃣ Party Mode<br/>啟動"] --> B["2️⃣ 讀取<br/>config.yaml"]
+        B --> C["3️⃣ 解析<br/>變數"]
+        C --> D["4️⃣ 儲存為<br/>session vars"]
+        D --> E["5️⃣ 後續步驟<br/>使用"]
+    end
+
+    style A fill:#e3f2fd
+    style B fill:#e3f2fd
+    style C fill:#fff3e0
+    style D fill:#fff3e0
+    style E fill:#c8e6c9
 ```
-1. Party Mode 啟動
-       ↓
-2. 讀取 core/config.yaml
-       ↓
-3. 解析變數
-       ↓
-4. 儲存為 session variables
-       ↓
-5. 在後續步驟中使用
+
+**技術概念說明：Configuration Injection（配置注入）**
+
+配置在啟動時一次性載入，後續步驟透過 session variables 存取：
+
+```mermaid
+graph TB
+    subgraph DI["Dependency Injection Pattern"]
+        CONFIG["config.yaml"] -->|注入| CONTAINER["Session Container"]
+        CONTAINER -->|提供| S1["Step 1"]
+        CONTAINER -->|提供| S2["Step 2"]
+        CONTAINER -->|提供| S3["Step 3"]
+    end
+
+    style DI fill:#f5f5f5
 ```
 
 ---
@@ -281,3 +327,70 @@ document_output_language: Mandarin zhTW
 | 使用變數 | 路徑使用 `{project-root}` 而非硬編碼 |
 | 驗證存在 | 使用前驗證配置檔案存在 |
 | 處理預設值 | 缺失項目應有合理預設值 |
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((config.yaml<br/>配置系統))
+    兩層架構
+      Core Config
+        user_name
+        communication_language
+        output_folder
+      BMM Config
+        project_name
+        user_skill_level
+        tea 設定
+    設計模式
+      Template Substitution
+      Configuration Injection
+      Path Abstraction
+    使用時機
+      啟動時載入
+      Session 變數儲存
+      步驟中使用
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Template Variable Substitution** | 訊息模板 | 動態個人化內容 |
+| **Configuration Injection** | 啟動流程 | 集中配置，統一注入 |
+| **Path Abstraction** | 路徑變數 | 支援不同部署環境 |
+| **Layered Configuration** | Core/BMM | 模組化配置，支援覆蓋 |
+| **Validation Guard** | Step 1 | 確保配置完整性 |
+
+### 兩層配置架構視覺化
+
+```mermaid
+graph TB
+    subgraph LAYERS["🏗️ 兩層配置架構"]
+        subgraph CORE["Core Config"]
+            C1["user_name"]
+            C2["communication_language"]
+            C3["output_folder"]
+        end
+
+        subgraph BMM["BMM Config"]
+            B1["project_name"]
+            B2["user_skill_level"]
+            B3["tea_* 設定"]
+            B4["複製的 Core 設定"]
+        end
+
+        BMM -->|優先| MERGE["合併後配置"]
+        CORE -->|基礎| MERGE
+    end
+
+    MERGE --> PARTY["Party Mode 使用"]
+
+    style CORE fill:#e3f2fd
+    style BMM fill:#fff3e0
+    style MERGE fill:#c8e6c9
+```
+
+**核心洞察**：BMAD 的兩層配置系統體現了**關注點分離**原則——Core 負責平台級共用設定，BMM 負責模組特定配置。這種設計支援模組獨立運作，同時透過配置覆蓋機制實現靈活的客製化。`{project-root}` 路徑抽象使配置在不同環境中保持可移植性。
