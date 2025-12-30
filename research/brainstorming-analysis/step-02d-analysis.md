@@ -85,47 +85,66 @@
 
 **四階段設計分析：**
 
+```mermaid
+flowchart TD
+    subgraph P1["Phase 1: EXPANSIVE EXPLORATION"]
+        A1["Divergent 發散思維"]
+        A2["大量想法，不設限，最大創意廣度"]
+    end
+
+    subgraph P2["Phase 2: PATTERN RECOGNITION"]
+        B1["Analytical 分析思維"]
+        B2["識別主題，組織混沌，發現關聯"]
+    end
+
+    subgraph P3["Phase 3: IDEA DEVELOPMENT"]
+        C1["Convergent 收斂思維"]
+        C2["精煉與深化最有潛力的概念"]
+    end
+
+    subgraph P4["Phase 4: ACTION PLANNING"]
+        D1["Implementation 實作思維"]
+        D2["創建具體步驟與實施策略"]
+    end
+
+    P1 --> P2 --> P3 --> P4
+
+    style P1 fill:#e3f2fd
+    style P2 fill:#fff3e0
+    style P3 fill:#e8f5e9
+    style P4 fill:#fce4ec
 ```
-┌─────────────────────────────────────────────────────────────┐
-│               Progressive Flow: Four Phases                  │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  Phase 1: EXPANSIVE EXPLORATION                              │
-│  思維模式: Divergent (發散)                                  │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆ ★ ☆                │ │
-│  │       大量想法，不設限，最大創意廣度                   │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                          │                                   │
-│                          ▼                                   │
-│  Phase 2: PATTERN RECOGNITION                                │
-│  思維模式: Analytical (分析)                                 │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │   ★★★        ☆☆☆        ★★                         │ │
-│  │  (群組A)    (群組B)    (群組C)                         │ │
-│  │       識別主題，組織混沌，發現關聯                     │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                          │                                   │
-│                          ▼                                   │
-│  Phase 3: IDEA DEVELOPMENT                                   │
-│  思維模式: Convergent (收斂)                                 │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │      ★★★★★★                                          │ │
-│  │     (精煉概念)                                          │ │
-│  │       精煉與深化最有潛力的概念                         │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                          │                                   │
-│                          ▼                                   │
-│  Phase 4: ACTION PLANNING                                    │
-│  思維模式: Implementation (實作)                             │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │      □ → □ → □ → ✓                                    │ │
-│  │      (行動計畫)                                         │ │
-│  │       創建具體步驟與實施策略                           │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：Double Diamond 設計思維**
+
+這個四階段流程與 **Double Diamond** 設計方法論高度對應：
+
+```mermaid
+graph TB
+    subgraph DIAMOND1["第一顆鑽石：發現問題"]
+        direction LR
+        A1[Discover<br/>發現] --> A2[Define<br/>定義]
+    end
+
+    subgraph DIAMOND2["第二顆鑽石：解決問題"]
+        direction LR
+        B1[Develop<br/>發展] --> B2[Deliver<br/>交付]
+    end
+
+    DIAMOND1 --> DIAMOND2
+
+    style A1 fill:#bbdefb
+    style A2 fill:#fff9c4
+    style B1 fill:#c8e6c9
+    style B2 fill:#f8bbd9
 ```
+
+| Progressive Flow | Double Diamond | 思維模式 |
+|------------------|----------------|----------|
+| Phase 1: Exploration | Discover | 發散 |
+| Phase 2: Pattern Recognition | Define | 收斂 |
+| Phase 3: Development | Develop | 發散 |
+| Phase 4: Action | Deliver | 收斂 |
 
 ---
 
@@ -250,34 +269,48 @@ and find meaning in the creative abundance:
 
 **自訂維度：**
 
+```mermaid
+flowchart TB
+    subgraph CUSTOM["🎛️ Customization Options 自訂選項"]
+        direction TB
+
+        subgraph PHASE["Phase Modifications 階段技術修改"]
+            PM1["★ 替換任一階段的技術"]
+            PM2["★ 使用替代方法達成相同目標"]
+        end
+
+        subgraph TIMING["Timing Adjustments 時間結構調整"]
+            direction TB
+            T1["Compact: P1→P2+P3→P4<br/>合併 Phase 2-3"]
+            T2["Extended: P1→P2→P2b→P3→P4<br/>加入額外技術"]
+            T3["Focused: P1→P2────→P3→P4<br/>重點強調特定階段"]
+        end
+    end
+
+    style CUSTOM fill:#f5f5f5
+    style PHASE fill:#e3f2fd
+    style TIMING fill:#fff3e0
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                 Customization Options                        │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌─────────────────────────────────────────────────────┐    │
-│  │                 Phase Modifications                  │    │
-│  │                 (階段技術修改)                       │    │
-│  │                                                      │    │
-│  │  ★ 替換任一階段的技術                               │    │
-│  │  ★ 使用替代方法達成相同目標                         │    │
-│  └─────────────────────────────────────────────────────┘    │
-│                                                              │
-│  ┌─────────────────────────────────────────────────────┐    │
-│  │                 Timing Adjustments                   │    │
-│  │                 (時間結構調整)                       │    │
-│  │                                                      │    │
-│  │  Compact:    [P1]──[P2+P3]──[P4]                     │    │
-│  │              合併 Phase 2-3                          │    │
-│  │                                                      │    │
-│  │  Extended:   [P1]──[P2]──[P2b]──[P3]──[P4]           │    │
-│  │              在任何階段加入額外技術                   │    │
-│  │                                                      │    │
-│  │  Focused:    [P1]──[P2]────────[P3]──[P4]            │    │
-│  │              重點強調特定階段                        │    │
-│  └─────────────────────────────────────────────────────┘    │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**時間調整模式視覺化：**
+
+```mermaid
+flowchart LR
+    subgraph COMPACT["Compact 精簡模式"]
+        C1[P1] --> C23[P2+P3] --> C4[P4]
+    end
+
+    subgraph EXTENDED["Extended 延伸模式"]
+        E1[P1] --> E2[P2] --> E2b[P2b] --> E3[P3] --> E4[P4]
+    end
+
+    subgraph FOCUSED["Focused 聚焦模式"]
+        F1[P1] --> F2[P2<br/>加強] --> F3[P3] --> F4[P4]
+    end
+
+    style C23 fill:#ffecb3
+    style E2b fill:#c8e6c9
+    style F2 fill:#bbdefb,stroke:#1976d2,stroke-width:3px
 ```
 
 ---
@@ -341,24 +374,67 @@ and find meaning in the creative abundance:
 
 ### 2. Diamond Thinking Pattern（鑽石思維模式）
 
+```mermaid
+flowchart TB
+    subgraph DIAMOND["💎 Diamond Thinking Pattern"]
+        direction TB
+        START((開始)) --> P1
+
+        subgraph DIVERGE["發散 Diverge"]
+            P1["Phase 1<br/>Exploration<br/>擴張思維"]
+        end
+
+        subgraph CONVERGE["收斂 Converge"]
+            P2["Phase 2<br/>Pattern Recognition<br/>聚焦分析"]
+        end
+
+        subgraph DIVERGE2["再發散 Diverge Again"]
+            P3["Phase 3<br/>Development<br/>深化發展"]
+        end
+
+        subgraph CONVERGE2["最終收斂 Final Converge"]
+            P4["Phase 4<br/>Action Planning<br/>具體行動"]
+        end
+
+        P1 --> P2 --> P3 --> P4
+        P4 --> ACTION((行動))
+    end
+
+    style DIVERGE fill:#e3f2fd
+    style CONVERGE fill:#fff9c4
+    style DIVERGE2 fill:#e8f5e9
+    style CONVERGE2 fill:#fce4ec
 ```
-        發散 (擴張)
-           ╱╲
-          ╱  ╲
-         ╱    ╲
-        ╱      ╲
-       ╱ Phase 1 ╲
-      ╱──────────╲
-      ╲ Phase 2  ╱
-       ╲        ╱
-        ╲      ╱
-         ╲    ╱
-          ╲  ╱
-           ╲╱
-        收斂 (聚焦)
-            │
-            ▼
-         行動
+
+**技術概念說明：Double Diamond 與 Progressive Flow 對照**
+
+```mermaid
+graph LR
+    subgraph DD["Double Diamond 設計思維"]
+        D1[Discover<br/>發現] --> D2[Define<br/>定義]
+        D2 --> D3[Develop<br/>發展]
+        D3 --> D4[Deliver<br/>交付]
+    end
+
+    subgraph PF["Progressive Flow 四階段"]
+        P1[Phase 1<br/>Exploration] --> P2[Phase 2<br/>Pattern]
+        P2 --> P3[Phase 3<br/>Development]
+        P3 --> P4[Phase 4<br/>Action]
+    end
+
+    D1 -.->|對應| P1
+    D2 -.->|對應| P2
+    D3 -.->|對應| P3
+    D4 -.->|對應| P4
+
+    style D1 fill:#bbdefb
+    style D2 fill:#fff9c4
+    style D3 fill:#c8e6c9
+    style D4 fill:#f8bbd9
+    style P1 fill:#bbdefb
+    style P2 fill:#fff9c4
+    style P3 fill:#c8e6c9
+    style P4 fill:#f8bbd9
 ```
 
 ### 3. Scaffold Customization Pattern（架構自訂模式）
@@ -445,3 +521,69 @@ Phase 4: Action           ───────►   Deliver (交付)
 4. **彈性自訂**：在框架內允許調整
 
 這種設計適合需要完整創意開發流程、重視系統性、或處理複雜問題的用戶，體現了 BMAD 框架對專業創意方法論的整合。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Step 2d<br/>Progressive Flow))
+    四階段設計
+      Phase 1 Exploration
+      Phase 2 Pattern Recognition
+      Phase 3 Development
+      Phase 4 Action Planning
+    設計思維對應
+      Double Diamond
+      Design Thinking
+      發散收斂循環
+    自訂彈性
+      階段技術替換
+      時間結構調整
+      Compact/Extended/Focused
+    旅程隱喻
+      方向感
+      里程碑
+      階段轉換
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Journey Metaphor Pattern** | 整體框架 | 提供方向感與進度感 |
+| **Diamond Thinking Pattern** | 四階段結構 | 發散收斂的循環設計 |
+| **Scaffold Customization Pattern** | 自訂選項 | 在框架內提供彈性 |
+| **Transition Design Pattern** | 階段間銜接 | 明確的階段轉換設計 |
+| **Phase-Technique Matching** | 技術配對 | 每階段對應最適技術類型 |
+
+### 與設計方法論的連結
+
+```mermaid
+graph TB
+    subgraph METHODS["設計方法論家族"]
+        DD["Double Diamond<br/>(Design Council)"]
+        DT["Design Thinking<br/>(IDEO/Stanford)"]
+        LB["Lean Startup<br/>(Eric Ries)"]
+        AG["Agile/Scrum<br/>(軟體開發)"]
+    end
+
+    subgraph PF["Progressive Flow"]
+        P1["Exploration"]
+        P2["Pattern Recognition"]
+        P3["Development"]
+        P4["Action Planning"]
+    end
+
+    DD -->|啟發| PF
+    DT -->|影響| PF
+    LB -->|Build-Measure-Learn| P3
+    AG -->|迭代概念| P4
+
+    style DD fill:#e3f2fd
+    style DT fill:#fff3e0
+    style PF fill:#e8f5e9
+```
+
+**核心洞察**：Progressive Flow 整合了多種設計方法論的精華，創造出適合 AI 引導的系統化創意流程。
