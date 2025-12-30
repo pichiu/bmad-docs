@@ -90,37 +90,56 @@ Analyze user's session context across multiple dimensions:
 
 **多維度分析圖：**
 
+```mermaid
+flowchart TD
+    subgraph INPUT["輸入分析"]
+        A[Goal Analysis<br/>目標分析]
+        B[Complexity Match<br/>複雜度匹配]
+        C[Energy/Tone<br/>能量語調]
+    end
+
+    A -->|創新/問題解決/團隊/個人/策略| D[維度整合]
+    B -->|複雜/具體/情感| D
+    C -->|正式/活潑/反思| D
+
+    D --> E[Time Available<br/>時間可用性]
+    E -->|"<30min"| F1["1-2 技術"]
+    E -->|"30-60min"| F2["2-3 技術"]
+    E -->|">60min"| F3["多階段流程"]
+
+    F1 --> G[Technique Recommendation<br/>技術推薦結果]
+    F2 --> G
+    F3 --> G
+
+    style INPUT fill:#e3f2fd
+    style G fill:#c8e6c9
 ```
-┌─────────────────────────────────────────────────────────────┐
-│               Context Analysis Dimensions                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│   ┌───────────────┐   ┌───────────────┐   ┌──────────────┐  │
-│   │  Goal         │   │  Complexity   │   │  Energy/Tone │  │
-│   │  Analysis     │   │  Match        │   │  Assessment  │  │
-│   └───────┬───────┘   └───────┬───────┘   └──────┬───────┘  │
-│           │                   │                   │          │
-│   創新/問題解決       複雜/具體/情感        正式/活潑/反思   │
-│   團隊/個人/策略                                             │
-│           │                   │                   │          │
-│           └───────────────────┼───────────────────┘          │
-│                               │                              │
-│                               ▼                              │
-│                   ┌───────────────────┐                      │
-│                   │  Time Available   │                      │
-│                   │  時間可用性       │                      │
-│                   └─────────┬─────────┘                      │
-│                             │                                │
-│                     <30min / 30-60min / >60min               │
-│                             │                                │
-│                             ▼                                │
-│              ┌──────────────────────────────┐                │
-│              │  Technique Recommendation    │                │
-│              │  技術推薦結果                │                │
-│              └──────────────────────────────┘                │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：多維度決策模型（Multi-Dimensional Decision Model）**
+
+這個分析框架是**加權決策矩陣**的應用，類似於推薦系統中的協同過濾：
+
+```mermaid
+graph LR
+    subgraph "推薦系統類比"
+        U[用戶 Profile] -->|脈絡分析| M[匹配演算法]
+        T[技術 Database] -->|特徵提取| M
+        M --> R[個人化推薦]
+    end
+
+    style U fill:#bbdefb
+    style T fill:#c8e6c9
+    style R fill:#fff9c4
 ```
+
+**實際運作範例**：
+
+| 用戶脈絡 | 分析結果 | 推薦類別 |
+|----------|----------|----------|
+| 目標：產品創新 | 創新導向 | Creative, Wild |
+| 複雜度：技術領域 | 需要結構 | Structured |
+| 語調：輕鬆活潑 | 高能量 | Theatrical |
+| 時間：45 分鐘 | 2-3 技術 | 選擇 3 個互補技術 |
 
 **維度對應表：**
 
@@ -171,48 +190,59 @@ Based on your session context, I recommend this customized technique sequence:
 
 **推薦結構設計：**
 
+```mermaid
+flowchart TD
+    subgraph P1["Phase 1: Foundation Setting"]
+        A1["技術名稱 + 類別 + 時長 + 能量"]
+        A2["Why this fits: 與用戶脈絡連結"]
+        A3["Expected outcome: 預期成果"]
+    end
+
+    subgraph P2["Phase 2: Idea Generation"]
+        B1["技術名稱 + 類別 + 時長 + 能量"]
+        B2["Why this builds on Phase 1: 互補效果"]
+        B3["Expected outcome: 發展基礎"]
+    end
+
+    subgraph P3["Phase 3: Refinement & Action"]
+        C1["技術名稱 + 類別 + 時長 + 能量"]
+        C2["Why this concludes: 收尾邏輯"]
+        C3["Expected outcome: 可行動結果"]
+    end
+
+    P1 --> P2 --> P3
+
+    style P1 fill:#e3f2fd
+    style P2 fill:#fff3e0
+    style P3 fill:#e8f5e9
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                 Recommendation Structure                     │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  Phase 1: Foundation Setting                                 │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ 技術名稱 + 類別 + 時長 + 能量等級                      │ │
-│  │                                                        │ │
-│  │ Why this fits:                                         │ │
-│  │ → 與用戶目標/脈絡的具體連結                            │ │
-│  │                                                        │ │
-│  │ Expected outcome:                                      │ │
-│  │ → 這個技術會帶來什麼                                   │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                          │                                   │
-│                          ▼                                   │
-│  Phase 2: Idea Generation                                    │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ 技術名稱 + 類別 + 時長 + 能量等級                      │ │
-│  │                                                        │ │
-│  │ Why this builds on Phase 1:                            │ │
-│  │ → 與前一階段的互補效果                                 │ │
-│  │                                                        │ │
-│  │ Expected outcome:                                      │ │
-│  │ → 如何發展基礎                                         │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                          │                                   │
-│                          ▼                                   │
-│  Phase 3: Refinement & Action                                │
-│  ┌────────────────────────────────────────────────────────┐ │
-│  │ 技術名稱 + 類別 + 時長 + 能量等級                      │ │
-│  │                                                        │ │
-│  │ Why this concludes effectively:                        │ │
-│  │ → 最後階段的收尾邏輯                                   │ │
-│  │                                                        │ │
-│  │ Expected outcome:                                      │ │
-│  │ → 如何導向可行動的結果                                 │ │
-│  └────────────────────────────────────────────────────────┘ │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+
+**技術概念說明：透明推薦系統（Explainable AI）**
+
+這種「附帶理由」的推薦設計體現了**可解釋 AI** 的原則：
+
+```mermaid
+graph TD
+    subgraph "黑箱推薦"
+        A1[輸入] --> B1[推薦]
+        B1 --> C1["結果：用技術 X"]
+    end
+
+    subgraph "透明推薦 ✓"
+        A2[輸入] --> B2[推薦]
+        B2 --> C2["結果：用技術 X"]
+        B2 --> D2["理由：因為您的目標是創新..."]
+    end
+
+    style C2 fill:#c8e6c9
+    style D2 fill:#fff9c4
 ```
+
+**為什麼透明很重要？**
+
+- **建立信任**：用戶理解 AI 的推理過程
+- **支持決策**：用戶能評估推薦是否適合
+- **學習機會**：用戶了解技術選擇的邏輯
 
 ---
 
@@ -424,3 +454,36 @@ AI 主動分析需求並推薦最佳配對：
 4. **用戶控制**：保留修改與拒絕的權利
 
 這種設計適合信任 AI 專業判斷、希望快速開始、或不確定該選什麼技術的用戶，體現了 BMAD 框架「AI 專業引導」與「用戶最終決定」的平衡設計。
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Step 2b<br/>AI-Recommended))
+    多維度分析
+      目標分析
+      複雜度匹配
+      能量語調
+      時間規劃
+    透明推薦
+      附帶理由
+      可解釋 AI
+    階段式設計
+      Foundation
+      Generation
+      Refinement
+    用戶控制
+      可修改
+      可拒絕
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Matchmaker Pattern** | 整體設計 | 主動配對而非被動呈現 |
+| **Multi-Dimensional Analysis** | 脈絡分析 | 全面理解用戶需求 |
+| **Explainable AI** | 推薦呈現 | 透明的決策理由 |
+| **Phased Recommendation** | 結果組織 | 邏輯化的階段結構 |
