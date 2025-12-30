@@ -49,6 +49,24 @@
 
 ## 優雅退出流程
 
+```mermaid
+flowchart TB
+    subgraph EXIT["👋 Step 3: Graceful Exit"]
+        START["🎬 開始退出"] --> THANK["🙏 階段1: 致謝會話結束"]
+        THANK --> FAREWELL["👋 階段2: 生成代理告別"]
+        FAREWELL --> SUMMARY["📝 階段3: 會話重點摘要"]
+        SUMMARY --> CLOSING["🎊 階段4: 最終結語"]
+        CLOSING --> UPDATE["💾 階段5: 更新 Frontmatter"]
+        UPDATE --> CLEANUP["🧹 清理狀態"]
+        CLEANUP --> DONE["✅ 階段6: 工作流程完成"]
+    end
+
+    style START fill:#e3f2fd
+    style DONE fill:#c8e6c9
+    style THANK fill:#fff3e0
+    style FAREWELL fill:#fce4ec
+```
+
 ### 階段 1: 致謝會話結束
 
 **開始退出流程的溫馨致謝：**
@@ -271,19 +289,37 @@ multi-agent discussions!
 
 ## 狀態轉換
 
+```mermaid
+stateDiagram-v2
+    state "執行前" as BEFORE {
+        [*] --> B1: stepsCompleted: [1, 2]
+        B1 --> B2: party_active: true
+        B2 --> B3: workflow_completed: false
+    }
+
+    state "執行後" as AFTER {
+        [*] --> A1: stepsCompleted: [1, 2, 3]
+        A1 --> A2: party_active: false
+        A2 --> A3: workflow_completed: true
+    }
+
+    BEFORE --> AFTER: 執行 Step 3
 ```
-[執行前]
-├── stepsCompleted: [1, 2]
-├── party_active: true
-└── workflow_completed: false
 
-        │ 執行 Step 3
-        ▼
+**技術概念說明：Cleanup Pattern（清理模式）**
 
-[執行後]
-├── stepsCompleted: [1, 2, 3]
-├── party_active: false
-└── workflow_completed: true
+優雅退出包含狀態清理，確保系統回到乾淨狀態：
+
+```mermaid
+graph LR
+    subgraph CLEANUP["Cleanup Pattern"]
+        ACTIVE["活躍狀態"] --> FAREWELL["告別序列"]
+        FAREWELL --> CLEAR["清理資源"]
+        CLEAR --> RESET["重置狀態"]
+        RESET --> READY["準備下次使用"]
+    end
+
+    style CLEANUP fill:#f5f5f5
 ```
 
 ---
@@ -335,3 +371,76 @@ multi-agent discussions!
 | 創意型 (Sally) | 情感豐富、鼓舞人心 |
 | 流程型 (Bob, Murat) | 簡潔、結構化 |
 | 知識型 (Paige) | 教育性、友善 |
+
+---
+
+## 技術概念快速參考
+
+```mermaid
+mindmap
+  root((Step 3<br/>Graceful Exit))
+    告別序列
+      致謝會話
+      代理告別
+      TTS 語音
+    會話總結
+      重點摘要
+      關鍵洞見
+      協作成果
+    狀態清理
+      Frontmatter 更新
+      資源釋放
+      狀態重置
+    體驗設計
+      正面氛圍
+      角色一致
+      完整感
+```
+
+### 設計模式對照表
+
+| 模式名稱 | 應用位置 | 核心價值 |
+|----------|----------|----------|
+| **Cleanup Pattern** | 狀態清理 | 確保乾淨狀態準備下次使用 |
+| **Ceremony Pattern** | 告別序列 | 儀式感增強體驗完整性 |
+| **Character Consistency** | 代理告別 | 告別反映代理人格 |
+| **Summary Pattern** | 會話摘要 | 強化學習與記憶 |
+| **Positive Closure** | 最終結語 | 正面印象增強滿意度 |
+
+### 告別類型視覺化
+
+```mermaid
+graph TB
+    subgraph FAREWELL_TYPES["🎭 告別風格分類"]
+        subgraph TECH["技術型"]
+            T1["🏗️ Winston<br/>專業建議"]
+            T2["💻 Amelia<br/>技術洞見"]
+        end
+
+        subgraph BIZ["商業型"]
+            B1["📋 John<br/>策略總結"]
+            B2["📊 Mary<br/>成果導向"]
+        end
+
+        subgraph CREATIVE["創意型"]
+            C1["🎨 Sally<br/>情感鼓舞"]
+        end
+
+        subgraph PROCESS["流程型"]
+            P1["🏃 Bob<br/>簡潔有力"]
+            P2["🧪 Murat<br/>結構化"]
+        end
+
+        subgraph KNOWLEDGE["知識型"]
+            K1["📚 Paige<br/>教育友善"]
+        end
+    end
+
+    style TECH fill:#e3f2fd
+    style BIZ fill:#fff3e0
+    style CREATIVE fill:#fce4ec
+    style PROCESS fill:#e0f2f1
+    style KNOWLEDGE fill:#f3e5f5
+```
+
+**核心洞察**：Step 3 是 Party Mode 的「完美收尾」，透過 Ceremony Pattern 為對話提供儀式感的結束。Character Consistency 確保每個代理的告別都反映其獨特人格，而 Cleanup Pattern 則保證系統狀態乾淨，為下次使用做好準備。這種「有始有終」的設計大幅提升用戶的整體體驗滿意度。
